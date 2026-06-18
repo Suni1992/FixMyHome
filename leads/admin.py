@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Lead
+from .models import Lead, Pincode  # ध्यान दें: यहाँ अपने Pincode मॉडल का असली नाम लिखें जो models.py में है
 
-@admin.register(Lead)
-class LeadAdmin(admin.ModelAdmin):
-    list_display = ('name', 'phone', 'area', 'created_at')
+admin.site.register(Lead)
+admin.site.register(Pincode)  # यह लाइन पिनकोड को एडमिन पैनल में लाएगी
