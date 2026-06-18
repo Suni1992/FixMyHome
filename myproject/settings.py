@@ -120,4 +120,5 @@ STATIC_URL = 'static/'
 
 CSRF_TRUSTED_ORIGINS = [
     'https://fixmyhome-a4r4.onrender.com',
+    'http://*.onrender.com',
 ]
