@@ -122,3 +122,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://fixmyhome-a4r4.onrender.com',
     'http://*.onrender.com',
 ]
+
+
+import os
+os.environ["DJANGO_SUPERUSER_PASSWORD"] = "Sunil@1234"
