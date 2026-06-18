@@ -116,3 +116,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://fixmyhome-a4r4.onrender.com',
+]
