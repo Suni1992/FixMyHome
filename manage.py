@@ -4,6 +4,18 @@ import os
 import sys
 
 
+import django
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myproject.settings')
+django.setup()
+
+from django.contrib.auth import get_user_model
+User = get_user_model()
+if not User.objects.filter(username='sunilkumar').exists():
+    User.objects.create_superuser('sunilkumar', 'admin@example.com', 'Sunil@1234')
+    print("Superuser created successfully!")
+
+
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myproject.settings')
