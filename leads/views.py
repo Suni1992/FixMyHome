@@ -12,14 +12,16 @@ def lead_collection_view(request):
         with open(json_path, 'r', encoding='utf-8') as f:
             raw_data = json.load(f)
             
-            # --- यहाँ से जादू शुरू: डुप्लीकेट्स हटाने का लॉजिक ---
-            seen_codes = set()
+            # --- नया लॉजिक: एक पिनकोड के सभी यूनीक इलाकों को आने दें ---
+            seen_combinations = set()
             for item in raw_data:
-                # पक्का करें कि आइटम में 'code' मौजूद है
-                if 'code' in item and item['code'] not in seen_codes:
-                    pincodes_list.append(item)
-                    seen_codes.add(item['code']) # इस पिनकोड को नोट कर लिया ताकि दोबारा न आए
-            # --- लॉजिक समाप्त ---
+                if 'code' in item and 'area' in item:
+                    # हम पिनकोड + इलाका दोनों को मिलाकर एक यूनिक आईडी बना रहे हैं
+                    combo = f"{item['code']}-{item['area']}"
+                    if combo not in seen_combinations:
+                        pincodes_list.append(item)
+                        seen_combinations.add(combo)
+            # --- नया लॉजिक समाप्त ---
             
     except FileNotFoundError:
         pincodes_list = []
@@ -28,7 +30,7 @@ def lead_collection_view(request):
 
     context = {
         'success': False,
-        'pincodes': pincodes_list,  # अब इसमें सिर्फ़ यूनीक पिनकोड्स ही जाएंगे
+        'pincodes': pincodes_list,  # अब इसमें एक पिनकोड के सारे अलग-अलग इलाके आ जाएंगे!
         'selected_area': selected_area
     }
     
