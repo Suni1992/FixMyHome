@@ -64,7 +64,7 @@
             
             {% for pin in pincodes %}
                 <option value="{{ pin.code }}" {% if pin.code == selected_area %}selected{% endif %}>
-                    {{ pin.code }} - {{ pin.area }}
+                    {{ pin.area }} ({{ pin.code }})
                 </option>
             {% endfor %}
             
