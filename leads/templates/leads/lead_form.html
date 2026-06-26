@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-label fw-semibold">Pin Code / Area</label>
-<select name="area" class="form-select" required>
+<select name="area" id="pincode-select" class="form-select"  required
             <option value="">Select a pin code...</option>
             
             {% for pin in pincodes %}
@@ -97,3 +97,30 @@
 
 </body>
 </html>
+
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#pincode-select').select2({
+            placeholder: "Select a pin code or type to search...",
+            allowClear: true,
+            width: '100%' // इससे यह बूटस्ट्रैप कार्ड के अंदर बिल्कुल फिट बैठेगा
+        });
+    });
+</script>
+
+<style>
+    .select2-container--default .select2-selection--single {
+        height: 38px !important;
+        padding: 5px;
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 36px !important;
+    }
+</style>
