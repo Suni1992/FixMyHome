@@ -76,20 +76,20 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 import dj_database_url
 
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         # नीचे वाले हिस्से में अपनी कॉपी की हुई Internal Database URL पेस्ट करें
-#         default='postgresql://fixmyhome_db_user:BnIya3EPtUtFNj3i74VxyUOXxpol7GC7@dpg-d8qk06pkh4rs73cggdkg-a/fixmyhome_db',
-#         conn_max_age=600
-#     )
-# }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        # नीचे वाले हिस्से में अपनी कॉपी की हुई Internal Database URL पेस्ट करें
+        default='postgresql://fixmyhome_db_user:BnIya3EPtUtFNj3i74VxyUOXxpol7GC7@dpg-d8qk06pkh4rs73cggdkg-a/fixmyhome_db',
+        conn_max_age=600
+    )
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -141,4 +141,4 @@ CSRF_TRUSTED_ORIGINS = [
 
 
 import os
-os.environ["DJANGO_SUPERUSER_PASSWORD"] = "Sunil@1234"
+os.environ["DJANGO_SUPERUSER_PASSWORD"] = "Snuil@1234"
