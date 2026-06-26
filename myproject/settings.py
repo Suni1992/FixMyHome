@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -76,14 +76,20 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 import dj_database_url
 
-DATABASES = {
-    'default': dj_database_url.config(
-        # नीचे वाले हिस्से में अपनी कॉपी की हुई Internal Database URL पेस्ट करें
-        default='postgresql://fixmyhome_db_user:BnIya3EPtUtFNj3i74VxyUOXxpol7GC7@dpg-d8qk06pkh4rs73cggdkg-a/fixmyhome_db',
-        conn_max_age=600
-    )
-}
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         # नीचे वाले हिस्से में अपनी कॉपी की हुई Internal Database URL पेस्ट करें
+#         default='postgresql://fixmyhome_db_user:BnIya3EPtUtFNj3i74VxyUOXxpol7GC7@dpg-d8qk06pkh4rs73cggdkg-a/fixmyhome_db',
+#         conn_max_age=600
+#     )
+# }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -125,7 +131,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # व्हाइटनॉइज़ की सबसे सुरक्षित सेटिंग ताकि बूटस्ट्रैप एरर न दे
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
 CSRF_TRUSTED_ORIGINS = [

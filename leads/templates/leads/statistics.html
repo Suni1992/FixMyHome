@@ -17,12 +17,19 @@
 
 <nav class="navbar navbar-expand-lg navbar-light px-4">
     <div class="container-fluid">
-        <a class="navbar-brand fw-bold text-primary" href="/">📍 FixMyHome <span class="text-muted" style="font-size: 14px;">Gorakhpur</span></a>
-        <div class="navbar-nav ms-auto">
-            <a class="nav-link" href="#">About</a>
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-primary fs-4" href="/" style="letter-spacing: -0.5px;">
+    <span class="fs-3 transition-style" style="display: inline-block; transform: scale(1.15);">🏠</span> 
+    <span>FixMy<span class="text-dark">Home</span></span>
+    <span class="badge bg-secondary-subtle text-secondary fw-normal px-2 py-1 ms-1" style="font-size: 11px; border: 1px solid #dee2e6;">Gorakhpur</span>
+</a>
+        <div class="navbar-nav ms-auto align-items-center">
+            <a class="nav-link" href="/about">About</a>
             <a class="nav-link" href="/pincodes/">Pin Codes</a>
             <a class="nav-link text-primary fw-semibold" href="/statistics/">Statistics</a>
-            <a class="nav-link btn btn-sm btn-primary text-white px-3 ms-2" href="/">Create Lead</a>
+            
+            <a class="btn btn-sm btn-primary text-white px-3 ms-2" href="{% url 'lead_form' %}">
+                Create Lead
+            </a>
         </div>
     </div>
 </nav>
@@ -51,37 +58,46 @@
 </div>
 
 <script>
-    // ग्राफ 1 का डेटा (Pin Code Performance)
-    const ctx1 = document.getElementById('pinCodeChart').getContext('2d');
-    new Chart(ctx1, {
-        type: 'bar',
-        data: {
-            labels: ['273001', '273002', '273003', '273004', '273005', '273006'],
-            datasets: [{
-                label: 'Leads Generated',
-                data: [145, 178, 132, 85, 112, 67],
-                backgroundColor: '#5c7cfa',
-                borderRadius: 5
-            }]
-        },
-        options: { responsive: true, scales: { y: { beginAtZero: true } } }
-    });
+    // डैंगो से आ रहे असली डेटा को जावास्क्रिप्ट में लोड करना (safe फ़िल्टर के साथ)
+    const pinLabels = {{ pin_labels|safe }};
+    const pinData = {{ pin_data|safe }};
+    
+    const serviceLabels = {{ service_labels|safe }};
+    const serviceData = {{ service_data|safe }};
 
-    // ग्राफ 2 का डेटा (Category Distribution - Horizontal Bar)
-    const ctx2 = document.getElementById('categoryChart').getContext('2d');
-    new Chart(ctx2, {
-        type: 'bar',
-        data: {
-            labels: ['Electrical', 'Plumbing', 'Electronics', 'Home Appliances', 'Repair Services'],
-            datasets: [{
-                label: 'Total Leads',
-                data: [32, 25, 18, 14, 8],
-                backgroundColor: '#22b8cf',
-                borderRadius: 5
-            }]
-        },
-        options: { indexAxis: 'y', responsive: true, scales: { x: { beginAtZero: true } } }
-    });
+    // 1. पहला चार्ट: Lead Performance by Pin Code
+    const ctxPin = document.getElementById('pinCodeChart'); // पक्का करें कि यह आपकी canvas ID से मैच करे
+    if(ctxPin) {
+        new Chart(ctxPin, {
+            type: 'bar',
+            data: {
+                labels: pinLabels,  // 🎯 यहाँ असली पिनकोड्स आएंगे
+                datasets: [{
+                    label: 'Leads Generated',
+                    data: pinData,  // 🎯 यहाँ असली काउंट आएगा
+                    backgroundColor: '#4e73df',
+                }]
+            },
+            options: { responsive: true }
+        });
+    }
+
+    // 2. दूसरा चार्ट: Lead Distribution by Category
+    const ctxService = document.getElementById('categoryChart'); // पक्का करें कि यह आपकी canvas ID से मैच करे
+    if(ctxService) {
+        new Chart(ctxService, {
+            type: 'bar', // या horizontalBar/doughnut जो भी आपने बनाया हो
+            data: {
+                labels: serviceLabels,  // 🎯 यहाँ असली सर्विसेस (Electrical, Plumbing) आएंगी
+                datasets: [{
+                    label: 'Total Leads',
+                    data: serviceData,  // 🎯 यहाँ असली काउंट आएगा
+                    backgroundColor: '#36b9cc',
+                }]
+            },
+            options: { indexAxis: 'y', responsive: true } // indexAxis 'y' horizontal बार के लिए है
+        });
+    }
 </script>
 
 </body>

@@ -19,12 +19,19 @@
 
 <nav class="navbar navbar-expand-lg navbar-light px-4">
     <div class="container-fluid">
-        <a class="navbar-brand fw-bold text-primary" href="/">📍 FixMyHome <span class="text-muted" style="font-size: 14px;">Gorakhpur</span></a>
-        <div class="navbar-nav ms-auto">
-            <a class="nav-link text-primary fw-semibold" href="/about/">About</a>
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-primary fs-4" href="/" style="letter-spacing: -0.5px;">
+    <span class="fs-3 transition-style" style="display: inline-block; transform: scale(1.15);">🏠</span> 
+    <span>FixMy<span class="text-dark">Home</span></span>
+    <span class="badge bg-secondary-subtle text-secondary fw-normal px-2 py-1 ms-1" style="font-size: 11px; border: 1px solid #dee2e6;">Gorakhpur</span>
+</a>
+        <div class="navbar-nav ms-auto align-items-center">
+            <a class="nav-link text-primary fw-semibold" href="/about">About</a>
             <a class="nav-link" href="/pincodes/">Pin Codes</a>
             <a class="nav-link" href="/statistics/">Statistics</a>
-            <a class="nav-link btn btn-sm btn-primary text-white px-3 ms-2" href="/">Create Lead</a>
+            
+            <a class="btn btn-sm btn-primary text-white px-3 ms-2" href="{% url 'lead_form' %}">
+                Create Lead
+            </a>
         </div>
     </div>
 </nav>
