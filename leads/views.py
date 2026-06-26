@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Lead
 import os
 import json
-from django.conf import settings
+from django.conf import settings  # यह लाइन बहुत ज़रूरी है क्योंकि नीचे settings.BASE_DIR इस्तेमाल हो रहा है
 
 def lead_collection_view(request):
     # JSON फ़ाइल से पिनकोड लोड करना
