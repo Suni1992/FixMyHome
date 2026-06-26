@@ -59,16 +59,18 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-label fw-semibold">Pin Code / Area</label>
-    <select name="area" class="form-select" required>
-        <option value="">Select a pin code...</option>
-    
-    {% for pin in pincodes %}
-        <option value="{{ pin.code }}" {% if pin.code == selected_area %}selected{% endif %}>
-            {{ pin.code }} - {{ pin.name }}
-        </option>
-    {% endfor %}
-</select>
-                        </div>
+<select name="area" class="form-select" required>
+            <option value="">Select a pin code...</option>
+            
+            {% for pin in pincodes %}
+                <option value="{{ pin.code }}" {% if pin.code == selected_area %}selected{% endif %}>
+                    {{ pin.code }} - {{ pin.area }}
+                </option>
+            {% endfor %}
+            
+        </select>
+    </div>
+</div>
                         <div class="col-12">
                             <label class="form-label fw-semibold">Service Type</label>
                             <select name="service_type" class="form-select" required>
