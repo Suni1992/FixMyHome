@@ -62,11 +62,15 @@
                             <<select name="area" class="form-select" required>
     <option value="">Select a pin code...</option>
     
+    <select name="area" class="form-select" required>
+    <option value="">Select a pin code...</option>
+    
     {% for pin in pincodes %}
         <option value="{{ pin.code }}" {% if pin.code == selected_area %}selected{% endif %}>
-            {{ pin.code }} - {{ pin.name }}
+            {{ pin.code }} - {{ pin.area }}
         </option>
     {% endfor %}
+    
 </select>
                             </select>
                         </div>
