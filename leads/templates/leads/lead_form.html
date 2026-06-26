@@ -59,13 +59,15 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-label fw-semibold">Pin Code / Area</label>
-                            <select name="area" class="form-select" required>
-                                <option value="">Select a pin code...</option>
-                                <option value="273001 - Golghar">273001 - Golghar</option>
-                                <option value="273002 - Civil Lines">273002 - Civil Lines</option>
-                                <option value="273003 - Gorakhnath">273003 - Gorakhnath</option>
-                                <option value="273005 - Shahpur">273005 - Shahpur</option>
-                                <option value="273010 - Padri Bazar">273010 - Padri Bazar</option>
+                            <<select name="area" class="form-select" required>
+    <option value="">Select a pin code...</option>
+    
+    {% for pin in pincodes %}
+        <option value="{{ pin.code }}" {% if pin.code == selected_area %}selected{% endif %}>
+            {{ pin.code }} - {{ pin.name }}
+        </option>
+    {% endfor %}
+</select>
                             </select>
                         </div>
                         <div class="col-12">

@@ -1,0 +1,1902 @@
+[
+  {
+    "code": "273001",
+    "area": "Allahadadpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273001",
+    "area": "Bank Road",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273001",
+    "area": "Civil Court",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273001",
+    "area": "Gorakhpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273002",
+    "area": "A.P.station",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273002",
+    "area": "Baraipur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273002",
+    "area": "Gopalpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273002",
+    "area": "Jagdishpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273002",
+    "area": "Jungle Ramgarh",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273002",
+    "area": "Kusumhi Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273002",
+    "area": "Sihoria",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273002",
+    "area": "Sonbarsa Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273003",
+    "area": "Arogyamandir",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273004",
+    "area": "Ashok Nagar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273004",
+    "area": "Basharatpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273005",
+    "area": "Gita Press",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273006",
+    "area": "Gita Vatika",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273007",
+    "area": "Balapar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273007",
+    "area": "Fertilizer Factory",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273007",
+    "area": "Jangle Beni madho",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273007",
+    "area": "Maina Bhagar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273007",
+    "area": "Maniram",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273007",
+    "area": "Mirpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273007",
+    "area": "Parmeshwar Pur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273007",
+    "area": "Rampurgopalpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273007",
+    "area": "Sihorwa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273008",
+    "area": "Kunraghat",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273009",
+    "area": "Gorakhpur University",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273010",
+    "area": "Jungle Chauri",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273010",
+    "area": "M.M.m.e.college",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273010",
+    "area": "Raiganj",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273012",
+    "area": "Railway Colony",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273013",
+    "area": "B.R.d medical college",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273013",
+    "area": "Gulharia",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273013",
+    "area": "Jhungia Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273013",
+    "area": "Jingle Ayodhayay prasad",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273013",
+    "area": "Jungle Aurahi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273014",
+    "area": "Jangle Dhushar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273014",
+    "area": "Jangle Laxmipur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273014",
+    "area": "Jangle Salikram",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273014",
+    "area": "Jangle Tulshiram",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273014",
+    "area": "Pac Camp",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273015",
+    "area": "Dohariya Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273015",
+    "area": "Gorakhnath Mandir",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273015",
+    "area": "Jagatabela",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273015",
+    "area": "Manjharia",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273016",
+    "area": "Bahrampur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273016",
+    "area": "Bargo",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273016",
+    "area": "Chhapiya",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273016",
+    "area": "Davarpar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273016",
+    "area": "Lahsari",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273016",
+    "area": "Lalpur Tikar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273016",
+    "area": "Mirzapur Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273016",
+    "area": "Nausar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273016",
+    "area": "Nauwa Awal",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273016",
+    "area": "Rampur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273016",
+    "area": "Shivpurinewcolony",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273152",
+    "area": "Belakanta",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273152",
+    "area": "Hemdhapur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273152",
+    "area": "Luhsi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273152",
+    "area": "Naiyapar Khurd",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273152",
+    "area": "Patra Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273152",
+    "area": "Pipraich",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273152",
+    "area": "Unaula",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Baidabazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Baluwa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Basantpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Bhaurabari",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Campierganj",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Davipur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Dharmpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Dhrampur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Gulhariya",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Kamasinkhurd",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Khajurgawan",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Kunwar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Loharpurwa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Madhonagar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Mahuwashukul",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Maulaganj",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Netwar Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Paniara",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Rajpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Rajuarakhurd",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Ramchaura",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Rigouli",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Sonoura Bujurg",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Suras",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273158",
+    "area": "Thakurnagar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Ban",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Barhyachowk",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Domara",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Fardahani",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Gangibazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Jangle Agahi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Kalyanpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Kanapar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Kataharimahurasar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Kekaria",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Mahawan Khore",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Majhauna",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Makhanaha",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Mansorganj Khurd",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Narakataha Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Nawapar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Rajabari",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Rakhore",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Rawatganj",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Sarhari",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Thawaipar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Tighara",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Tikaria",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273165",
+    "area": "Turkwalia",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273201",
+    "area": "Baghar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273201",
+    "area": "Bishwnathpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273201",
+    "area": "Chauri Chaura",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273201",
+    "area": "Gaunar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273201",
+    "area": "Mehia",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273201",
+    "area": "Mundera Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273201",
+    "area": "Parsauni",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273201",
+    "area": "Pholwaria",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273201",
+    "area": "Rampur Rakba",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273201",
+    "area": "S Athwa purvi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273201",
+    "area": "Sonbarsa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273202",
+    "area": "Amhia",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273202",
+    "area": "Awadhpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273202",
+    "area": "Basdila",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273202",
+    "area": "Belwa Babu",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273202",
+    "area": "Bhaisaha",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273202",
+    "area": "Bhauwapar Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273202",
+    "area": "Dumri Khas",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273202",
+    "area": "Gahira",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273202",
+    "area": "Jhangha",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273202",
+    "area": "Jungle Gauri",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273202",
+    "area": "Phothwa Inar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273202",
+    "area": "Sardar Nagar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273203",
+    "area": "Brahmpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273203",
+    "area": "Haraiya",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273203",
+    "area": "Jungle Rasoolpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273203",
+    "area": "Mithbel",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273203",
+    "area": "Nauwabari",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Bariepar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Bharpahi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Bharshad",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Bhashla",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Bhitirawat",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Chadrawn",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Dhuriapar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Dumarinivas",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Gahanshad",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Ghaghsara",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Harpur Budhat",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Kodari",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Lakhanapaar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Mahaita",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Minwa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Niwas",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Parmeswarpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Randauli",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Rithuwakhor",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Sahajanwa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273209",
+    "area": "Sidhauli",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273211",
+    "area": "Barayapar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273211",
+    "area": "Barigaon",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273211",
+    "area": "Bheunsa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273211",
+    "area": "Dhakhwa Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273211",
+    "area": "Israuli",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273211",
+    "area": "Karamdeva",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273211",
+    "area": "Murdewa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Amtaura",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Bargahan",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Basiakhor",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Bhaisa Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Bharohiya",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Bigahi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Bihari Bujurg",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Dewrartula",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Dhobouli",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Gadar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Hariharpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Jaitpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Jhudiya",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Karanpura",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Katai Tikar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Khajani Tehsil",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Khajni",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Khajuri",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Madanpura",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Mahuraon",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Pachauri",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Pagar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Rampur Pandey",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Semar Dadi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Sonbarsa Babu",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273212",
+    "area": "Tenuwa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273213",
+    "area": "Ahirauli Bujurg",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273213",
+    "area": "Alawalpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273213",
+    "area": "Ashauji Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273213",
+    "area": "Badago",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273213",
+    "area": "Baraw",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273213",
+    "area": "Baripur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273213",
+    "area": "Deharatikar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273213",
+    "area": "Patakhuli",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273213",
+    "area": "Sikriganj",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273213",
+    "area": "Trilokpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273301",
+    "area": "Dhanaha Naik",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273306",
+    "area": "Badhara Baraipar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273306",
+    "area": "Bhathat",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273306",
+    "area": "Chiuthan",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273306",
+    "area": "Jainpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273306",
+    "area": "Jungle Dumri no-1",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273306",
+    "area": "Junjle Dumri no-2",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273306",
+    "area": "Khutahan Khas",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273306",
+    "area": "Natwa Jungle",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273306",
+    "area": "Piparpati",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273306",
+    "area": "Samdar Khurd",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273306",
+    "area": "Shyamdeorva",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273306",
+    "area": "Sumergarh",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273401",
+    "area": "Belipar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273401",
+    "area": "Bhagawanpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273401",
+    "area": "Bhaghagarha",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273401",
+    "area": "Bhiti",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273401",
+    "area": "Bhowapar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273401",
+    "area": "Kakarakhore",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273401",
+    "area": "Khortha",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273401",
+    "area": "Kusmaul",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273401",
+    "area": "Mishraula",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273401",
+    "area": "Pichaura",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Balwa Dakhli",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Barhalganj",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Baria Khas",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Barpar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Bharroh",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Bhatpar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Bhrauli",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Bimuti",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Derwa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Farsand",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Khandaesari",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Madria",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Mahupar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Newaijpar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Nibidubey",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Parsia",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Patna",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Pirahani",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Sidhagaur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Sukahlpuri",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Tanda",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273402",
+    "area": "Tiha Mohammadpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273403",
+    "area": "Baghrain",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273403",
+    "area": "Bansgaon",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273403",
+    "area": "Bhita",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273403",
+    "area": "Bhuswal",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273403",
+    "area": "Bisaunpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273403",
+    "area": "Hata Buzurg",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273403",
+    "area": "Jigina Bhion",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273403",
+    "area": "Malahanpar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273403",
+    "area": "Pali",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273403",
+    "area": "Sahupar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273403",
+    "area": "Siswa Urf siuwa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273404",
+    "area": "Babhnauli",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273404",
+    "area": "Belghat",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273404",
+    "area": "Gaighat",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273404",
+    "area": "Kuri Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273404",
+    "area": "Lakhuapakar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273404",
+    "area": "Piparshandi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273404",
+    "area": "Shankarpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273404",
+    "area": "Siswa Babu",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273405",
+    "area": "Barhi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273405",
+    "area": "Bautha",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273405",
+    "area": "Bishunpura",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273405",
+    "area": "Dihghat",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273405",
+    "area": "Dumraila",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273405",
+    "area": "Kuin Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273405",
+    "area": "Sadhna",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273406",
+    "area": "Baraipurwa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273406",
+    "area": "Barni Gopalpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273406",
+    "area": "Bhatauli",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273406",
+    "area": "Gaursaira",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273406",
+    "area": "Hardi Chak",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273406",
+    "area": "Ropnari",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273406",
+    "area": "Saraya Tiwari",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273406",
+    "area": "Unwal",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Arwagadish",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Basahi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Bela Khurd",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Biraikhurd",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Dhudhara",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Dhuripar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Gajpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Gaurkhas",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Gigani Bujurg",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Keshawapar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Kotwa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Mahubujurg",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Marwatiya",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Mokarimpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Newas",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Pachperwa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Pandeypura",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Purwa Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Raujadaragah",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Rohari",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Shahpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Sidhawana",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273407",
+    "area": "Uruwa Bazar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273408",
+    "area": "Chilwa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273408",
+    "area": "Deepgarh",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273408",
+    "area": "Dewalapar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273408",
+    "area": "Gola",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273408",
+    "area": "Kakrahi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273408",
+    "area": "Kodri",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273408",
+    "area": "Mannipursahdauli",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273408",
+    "area": "Nuaon",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273408",
+    "area": "Patauha",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273408",
+    "area": "Samayathanbhiti",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273409",
+    "area": "Baranagar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273409",
+    "area": "Barpar Mafi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273409",
+    "area": "Bishunpur Raja",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273409",
+    "area": "Deidiha",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273409",
+    "area": "Harpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273409",
+    "area": "Jharkata",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273409",
+    "area": "Murarpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273409",
+    "area": "Tarayapar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273409",
+    "area": "Uchagaon",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273411",
+    "area": "Belabirbhan",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273411",
+    "area": "Belkur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273411",
+    "area": "Dandi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273411",
+    "area": "Dharsi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273411",
+    "area": "Gagaha",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273411",
+    "area": "Ghorsaon",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273411",
+    "area": "Jadishpur Bhaluwan",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273411",
+    "area": "Karwal Majhgawa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273411",
+    "area": "Kohra Buzurg",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273411",
+    "area": "Kotha",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273411",
+    "area": "Rajgharh",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273411",
+    "area": "Rakhat",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273411",
+    "area": "Salarpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Baraipar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Chhapra",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Dadri",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Gangapar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Khajuri Baboo",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Khakhaichkhor",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Khirkitadubey",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Kodarpandey",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Mathia",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Mohaljalkar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Newada",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Rampur Bhaghaura",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Riaon",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Sahuwakol",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Semra Khurd",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Shivpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Sihaijpar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273412",
+    "area": "Ujjarpar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Baksuri",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Bashwanpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Boopgarh",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Chawaria Buzurg",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Dhanwda Buzurg",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Dubauli",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Girdharpur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Janipur",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Kanaicha",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Kanail",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Karanjahi",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Kauriram",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Mahuarkol",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Mahuja",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Malaon",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Munderathakurai",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Pakdidubey",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Shingaha",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Sogaura",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Thunni Mahadev chak",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Tiar",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Tigharakhairwa",
+    "city": "Gorakhpur"
+  },
+  {
+    "code": "273413",
+    "area": "Tihamahapur Chak",
+    "city": "Gorakhpur"
+  }
+]
