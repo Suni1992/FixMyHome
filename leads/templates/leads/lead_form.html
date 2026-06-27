@@ -69,15 +69,15 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="form-card">
-                <!-- 🎯 सक्सेस मैसेज डिस्प्ले ब्लॉक (Canvas में पूरी तरह सुरक्षित) -->
+                <!-- 🎯 सक्सेस मैसेज डिस्प्ले ब्लॉक - सेंटर्ड स्टाइल और क्लोज बटन के साथ -->
                 {% if messages %}
                     {% for message in messages %}
-                        <div class="alert alert-success alert-dismissible fade show border-0 shadow-sm d-flex align-items-center justify-content-between mb-4" role="alert" style="background-color: #d1e7dd; color: #0f5132; border-radius: 10px; padding: 15px 20px;">
-                            <div class="d-flex align-items-center gap-2">
-                                <span class="fw-bold">✓</span>
-                                <span class="fw-semibold">{{ message }}</span>
+                        <div class="alert alert-success alert-dismissible fade show border-0 shadow-sm d-flex align-items-center justify-content-center mb-4 position-relative" role="alert" style="background-color: #d1e7dd; color: #0f5132; border-radius: 10px; padding: 15px 20px;">
+                            <div class="text-center fw-semibold">
+                                ✓ धन्यवाद! आपकी लीड सफलतापूर्वक दर्ज कर ली गई है।
                             </div>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="margin: 0; padding: 0; filter: invert(24%) sepia(23%) saturate(1473%) hue-rotate(101deg) brightness(95%) contrast(93%);"></button>
+                            <!-- 🎯 बंद करने वाला क्रॉस बटन बिल्कुल दाईं तरफ रहेगा -->
+                            <button type="button" class="btn-close position-absolute" data-bs-dismiss="alert" aria-label="Close" style="right: 15px; top: 50%; transform: translateY(-50%); filter: invert(24%) sepia(23%) saturate(1473%) hue-rotate(101deg) brightness(95%) contrast(93%); margin: 0; padding: 0;"></button>
                         </div>
                     {% endfor %}
                 {% endif %}
