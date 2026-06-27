@@ -1,6 +1,7 @@
 import os
 import json
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.conf import settings
 from .models import Lead
 from django.db.models import Count
@@ -35,12 +36,6 @@ def lead_collection_view(request):
         pincodes_list = []
 
     selected_area = request.GET.get('area', '') 
-
-    context = {
-        'success': False,
-        'pincodes': pincodes_list,
-        'selected_area': selected_area
-    }
     
     # जब यूजर फॉर्म सबमिट करेगा (POST)
     if request.method == "POST":
@@ -49,19 +44,29 @@ def lead_collection_view(request):
         email = request.POST.get('email')
         area = request.POST.get('area')
         service_type = request.POST.get('service_type')
+        requirements = request.POST.get('requirements')
         
-        # नया ऑब्जेक्ट क्रिएट करके डेटाबेस में सेव करना
+        # नया ऑब्जेक्ट क्रिएट करके डेटाबेस में सेव करना (requirements के साथ)
         new_lead = Lead(
             name=name, 
             phone=phone, 
             email=email, 
             area=area, 
-            service_type=service_type
+            service_type=service_type,
+            requirements=requirements
         )
         new_lead.save()
 
-        context['success'] = True
+        # 🎯 यहाँ हमने सक्सेस मैसेज बना दिया जो HTML के {% if messages %} को दिखाई देगा
+        messages.success(request, "धन्यवाद! आपकी लीड सफलतापूर्वक दर्ज कर ली गई है।")
 
+        # डैंगो मैसेजेस के साथ रीडायरेक्ट करना बेस्ट प्रैक्टिस है ताकि पेज रिफ्रेश (F5) करने पर दोबारा फॉर्म सबमिट न हो (No duplicate submission)
+        return redirect('/')
+
+    context = {
+        'pincodes': pincodes_list,
+        'selected_area': selected_area
+    }
     return render(request, 'leads/lead_form.html', context)
 
 
@@ -70,7 +75,7 @@ def pincodes_view(request):
     json_path = os.path.join(settings.BASE_DIR, 'pincodes.json')
     pincodes_list = []
     
-    # डेटाबेस से हर एरिया की असली लीड्स की गिनती निकालना
+    # डेटाबेस से हरिया की असली लीड्स की गिनती निकालना
     lead_counts = defaultdict(int)
     lead_latest = defaultdict(str)  # नई लीड को ट्रैक करने के लिए
     
