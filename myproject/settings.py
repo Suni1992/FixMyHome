@@ -25,7 +25,16 @@ SECRET_KEY = 'django-insecure-yg5%u54ksvk!6$+h@pr0*@f%lwab&lq&(2=dg^@)l%ck!_t)fx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['*']
+# myproject/settings.py के अंदर ALLOWED_HOSTS को अपडेट करें:
+
+ALLOWED_HOSTS = [
+    'fixmyhome-a4r4.onrender.com',  # आपका रेंडर यूआरएल सुरक्षित रहेगा
+    'fixmyhomes.in',                # आपका नया बिना www का डोमेन
+    'www.fixmyhomes.in',            # आपका www वाला डोमेन
+    '127.0.0.1', 
+    'localhost'
+]
 
 
 # Application definition
