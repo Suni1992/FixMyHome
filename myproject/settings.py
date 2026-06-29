@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,7 +58,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -88,22 +90,13 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-import dj_database_url
-
 DATABASES = {
     'default': dj_database_url.config(
-        # नीचे वाले हिस्से में अपनी कॉपी की हुई Internal Database URL पेस्ट करें
         default='postgresql://fixmyhome_db_user:BnIya3EPtUtFNj3i74VxyUOXxpol7GC7@dpg-d8qk06pkh4rs73cggdkg-a/fixmyhome_db',
         conn_max_age=600
     )
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -139,20 +132,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-import os
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# व्हाइटनॉइज़ की सबसे सुरक्षित सेटिंग ताकि बूटस्ट्रैप एरर न दे
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://fixmyhome-a4r4.onrender.com',
-    'http://*.onrender.com',
-]
-
-
-import os
+# सुपरयूज़र क्रेडेंशियल्स एन्वायरमेंट सेटिंग्स
 os.environ["DJANGO_SUPERUSER_PASSWORD"] = "Snuil@1234"
