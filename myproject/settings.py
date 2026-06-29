@@ -36,6 +36,13 @@ ALLOWED_HOSTS = [
     'localhost'
 ]
 
+# 2. 🎯 CSRF ट्रस्टेड ओरिजिन को जोड़ें (यह 403 एरर को ठीक करने के लिए सबसे महत्वपूर्ण है):
+CSRF_TRUSTED_ORIGINS = [
+    '[https://fixmyhomes.in](https://fixmyhomes.in)',
+    '[https://www.fixmyhomes.in](https://www.fixmyhomes.in)',
+    '[https://fixmyhome-a4r4.onrender.com](https://fixmyhome-a4r4.onrender.com)'
+]
+
 
 # Application definition
 
