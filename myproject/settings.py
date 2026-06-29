@@ -25,22 +25,20 @@ SECRET_KEY = 'django-insecure-yg5%u54ksvk!6$+h@pr0*@f%lwab&lq&(2=dg^@)l%ck!_t)fx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['*']
-# myproject/settings.py के अंदर ALLOWED_HOSTS को अपडेट करें:
-
+# 1. ALLOWED_HOSTS - नए और पुराने सभी डोमेन्स को अनुमति दें
 ALLOWED_HOSTS = [
-    'fixmyhome-a4r4.onrender.com',  # आपका रेंडर यूआरएल सुरक्षित रहेगा
-    'fixmyhomes.in',                # आपका नया बिना www का डोमेन
-    'www.fixmyhomes.in',            # आपका www वाला डोमेन
+    'fixmyhome-a4r4.onrender.com',  # रेंडर का पुराना यूआरएल
+    'fixmyhomes.in',                # आपका नया बिना www का मुख्य डोमेन
+    'www.fixmyhomes.in',            # www वाला डोमेन
     '127.0.0.1', 
     'localhost'
 ]
 
-# 2. 🎯 CSRF ट्रस्टेड ओरिजिन को जोड़ें (यह 403 एरर को ठीक करने के लिए सबसे महत्वपूर्ण है):
+# 2. 🎯 CSRF TRUSTED ORIGINS - (403 एरर को ठीक करने के लिए सबसे महत्वपूर्ण क्लीन लिस्ट)
 CSRF_TRUSTED_ORIGINS = [
-    '[https://fixmyhomes.in](https://fixmyhomes.in)',
-    '[https://www.fixmyhomes.in](https://www.fixmyhomes.in)',
-    '[https://fixmyhome-a4r4.onrender.com](https://fixmyhome-a4r4.onrender.com)'
+    'https://fixmyhomes.in',
+    'https://www.fixmyhomes.in',
+    'https://fixmyhome-a4r4.onrender.com'
 ]
 
 
