@@ -45,15 +45,17 @@ def lead_collection_view(request):
         area = request.POST.get('area')
         service_type = request.POST.get('service_type')
         requirements = request.POST.get('requirements')
+        address = request.POST.get('address') # 📍 नए एड्रेस फ़ील्ड की वैल्यू उठाना
         
-        # नया ऑब्जेक्ट क्रिएट करके डेटाबेस में सेव करना (requirements के साथ)
+        # नया ऑब्जेक्ट क्रिएट करके डेटाबेस में सेव करना (requirements और address के साथ)
         new_lead = Lead(
             name=name, 
             phone=phone, 
             email=email, 
             area=area, 
             service_type=service_type,
-            requirements=requirements
+            requirements=requirements,
+            address=address # 📍 मॉडल में सेव करना
         )
         new_lead.save()
 

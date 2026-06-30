@@ -1,10 +1,17 @@
 from django.db import models
 
 class Lead(models.Model):
+    """
+    🎯 गोरखपुर के ग्राहकों की लीड्स स्टोर करने वाला डेटाबेस मॉडल
+    """
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=15)
     email = models.EmailField(blank=True, null=True)
     area = models.CharField(max_length=100)
+    
+    # 📍 ग्राहक के घर तक पहुँचने के लिए पूरा पता (नया फ़ील्ड)
+    address = models.TextField(blank=True, null=True, verbose_name="घर का पूरा पता")
+    
     service_type = models.CharField(max_length=50, blank=True, null=True)
     requirements = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -23,7 +30,7 @@ class Lead(models.Model):
         ('paid', 'Fully Paid'),
     ]
 
-    # 🎯 यहाँ हमने आपके 4 वर्कर्स की ड्रॉपडाउन लिस्ट (Choices) बना दी है
+    # 🎯 आपके 4 वर्कर्स की ड्रॉपडाउन लिस्ट (Choices)
     WORKER_CHOICES = [
         ('Ravi Kumar', 'रवि कुमार (Plumbing)'),
         ('Amit Sharma', 'अमित शर्मा (Electrical)'),
@@ -31,7 +38,7 @@ class Lead(models.Model):
         ('Sandeep Yadav', 'संदीप यादव (Home Appliances)'),
     ]
 
-    # 🚀 पुरानी assigned_to लाइन को हटाकर यह नई चॉइस वाली लाइन पेस्ट करें
+    # 🚀 लीड के लिए वर्कर या इंजीनियर असाइन करने का फ़ील्ड
     assigned_to = models.CharField(
         max_length=100, 
         choices=WORKER_CHOICES, 

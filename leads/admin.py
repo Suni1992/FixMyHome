@@ -1,39 +1,55 @@
+import csv
+from django.http import HttpResponse
 from django.contrib import admin
 from .models import Lead
 
+# 🎯 Selected Leads को Excel / CSV में डाउनलोड करने का जादुई एक्शन
+@admin.action(description="Selected Leads को CSV (Excel) में डाउनलोड करें")
+def export_leads_to_csv(modeladmin, request, queryset):
+    # 'utf-8-sig' एनकोडिंग एक्सेल और गूगल शीट्स में हिंदी और स्पेशल कैरेक्टर्स को बिल्कुल सही दिखाता है
+    response = HttpResponse(content_type='text/csv; charset=utf-8-sig')
+    response['Content-Disposition'] = 'attachment; filename="fixmyhome_leads.csv"'
+    
+    writer = csv.writer(response)
+    
+    # 📋 एक्सेल की हेडिंग्स (Columns)
+    writer.writerow([
+        'Lead ID', 
+        'Customer Name', 
+        'Phone Number', 
+        'Email Address', 
+        'Area / Pin Code', 
+        'Service Type', 
+        'Full Address', 
+        'Requirements'
+    ])
+    
+    # 📥 डेटाबेस से डेटा निकालकर रो (Rows) लिखना
+    for lead in queryset:
+        writer.writerow([
+            lead.id,
+            lead.name,
+            lead.phone,
+            lead.email,
+            lead.area,
+            lead.service_type,
+            getattr(lead, 'address', ''), # 📍 एड्रेस को सुरक्षित रूप से एक्सेल में लिखना
+            lead.requirements
+        ])
+        
+    return response
+
+# ⚙️ Django Admin में Leads को रजिस्टर करना और कस्टमाइज़ करना
+@admin.register(Lead)
 class LeadAdmin(admin.ModelAdmin):
-    # 🎯 'get_assigned_to_display' को हमने 'CURRENT STAGE' के ठीक पहले (बगल में) रख दिया है
-    list_display = (
-        'name', 
-        'area', 
-        'service_type', 
-        'assigned_worker_column',  # 🚀 यह हमारा कस्टमाइज्ड कॉलम है
-        'current_stage', 
-        'amount_paid_status', 
-        'created_at'
-    )
+    # एडमिन टेबल में कौन-कौन से कॉलम्स दिखेंगे
+    list_display = ('id', 'name', 'phone', 'service_type', 'area', 'address')
     
-    list_filter = ('current_stage', 'amount_paid_status', 'service_type', 'created_at')
-    search_fields = ('name', 'phone', 'assigned_to', 'area')
+    # दाईं तरफ फ़िल्टर बॉक्स (Service और Area के आधार पर छांटने के लिए)
+    list_filter = ('service_type',)
     
-    fieldsets = (
-        ('कस्टमर और सर्विस की जानकारी', {
-            'fields': ('name', 'phone', 'email', 'area', 'service_type', 'requirements')
-        }),
-        ('वर्क और इंजीनियर ट्रैकिंग', {
-            'fields': ('assigned_to', 'current_stage', 'engineer_status')
-        }),
-        ('पेमेंट और हिसाब-किताब', {
-            'fields': ('amount_total', 'amount_paid_status')
-        }),
-        ('फीडबैक और रिव्यूज', {
-            'fields': ('customer_review', 'rating')
-        }),
-    )
-
-    # 🎯 "METHOD" नाम को बदलकर "ASSIGNED WORKER" करने का जादुई फंक्शन
-    @admin.display(description='ASSIGNED WORKER', ordering='assigned_to')
-    def assigned_worker_column(self, obj):
-        return obj.get_assigned_to_display() or '-'
-
-admin.site.register(Lead, LeadAdmin)
+    # सर्च करने के लिए बॉक्स (नाम, फ़ोन नंबर, पता या आवश्यकता से सर्च करें)
+    search_fields = ('name', 'phone', 'requirements', 'address')
+    
+    # 🎯 हमारा कस्टम एक्सपोर्ट बटन जोड़ना
+    actions = [export_leads_to_csv]
