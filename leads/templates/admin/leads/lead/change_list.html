@@ -1,0 +1,102 @@
+{% extends "admin/change_list.html" %}
+{% load i18n admin_urls static admin_list %}
+
+{% block content %}
+{% if dashboard_stats %}
+<style>
+    .kpi-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 25px;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+    .kpi-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 18px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s, box-shadow 0.2s;
+        text-align: center;
+    }
+    .kpi-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    .kpi-title {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #64748b;
+        letter-spacing: 0.05em;
+        margin-bottom: 8px;
+    }
+    .kpi-value {
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 4px;
+    }
+    .kpi-desc {
+        font-size: 11px;
+        color: #94a3b8;
+    }
+    
+    /* 🎨 डार्क थीम सपोर्ट (सुनील की स्क्रीनशॉट थीम के लिए एकदम सटीक मैच) */
+    :root[data-theme="dark"] .kpi-card,
+    body.theme-dark .kpi-card,
+    [data-theme="dark"] .kpi-card {
+        background: #1e293b !important;
+        border-color: #334155 !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3) !important;
+    }
+    :root[data-theme="dark"] .kpi-title,
+    body.theme-dark .kpi-title {
+        color: #94a3b8 !important;
+    }
+    :root[data-theme="dark"] .kpi-desc,
+    body.theme-dark .kpi-desc {
+        color: #64748b !important;
+    }
+</style>
+
+<div class="kpi-container">
+    <!-- कार्ड 1: कुल लीड्स -->
+    <div class="kpi-card" style="border-left: 4px solid #3b82f6;">
+        <div class="kpi-title">Total Leads</div>
+        <div class="kpi-value" style="color: #3b82f6;">{{ dashboard_stats.total }}</div>
+        <div class="kpi-desc">कुल दर्ज की गई लीड्स</div>
+    </div>
+    
+    <!-- कार्ड 2: एक्टिव काम -->
+    <div class="kpi-card" style="border-left: 4px solid #f59e0b;">
+        <div class="kpi-title">Active Leads</div>
+        <div class="kpi-value" style="color: #f59e0b;">{{ dashboard_stats.active }}</div>
+        <div class="kpi-desc">काम चल रहा है / इंजीनियर असाइन</div>
+    </div>
+    
+    <!-- कार्ड 3: काम पूरा -->
+    <div class="kpi-card" style="border-left: 4px solid #10b981;">
+        <div class="kpi-title">Completed Tasks</div>
+        <div class="kpi-value" style="color: #10b981;">{{ dashboard_stats.completed }}</div>
+        <div class="kpi-desc">सफलतापूर्वक पूर्ण काम</div>
+    </div>
+    
+    <!-- कार्ड 4: कुल कमाई -->
+    <div class="kpi-card" style="border-left: 4px solid #059669;">
+        <div class="kpi-title">Collected Revenue</div>
+        <div class="kpi-value" style="color: #059669;">₹{{ dashboard_stats.collected }}</div>
+        <div class="kpi-desc">कुल वसूल की गई रकम</div>
+    </div>
+    
+    <!-- कार्ड 5: बकाया राशि -->
+    <div class="kpi-card" style="border-left: 4px solid #ef4444;">
+        <div class="kpi-title">Pending Revenue</div>
+        <div class="kpi-value" style="color: #ef4444;">₹{{ dashboard_stats.pending }}</div>
+        <div class="kpi-desc">कुल बची हुई / पेंडिंग रकम</div>
+    </div>
+</div>
+{% endif %}
+
+{{ block.super }}
+{% endblock %}
