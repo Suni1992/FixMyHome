@@ -31,7 +31,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'fixmyhome-a4r4.onrender.com',  # रेंडर का पुराना यूआरएल
     'fixmyhomes.in',                # आपका नया बिना www का मुख्य डोमेन
-    'www.fixmyhomes.in',            # www वाला डोमेन
+    'www.fixmyhomes.in',            # आपका www वाला डोमेन
     '127.0.0.1', 
     'localhost'
 ]
@@ -46,6 +46,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Application definition
 
+# 🎯 ध्यान दें: यहाँ हमने 'django.contrib.sitemaps' को जोड़ा है
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',  # 🚀 यह लाइन डैंगो को sitemap.xml ढूंढने में मदद करेगी
     'leads'
 ]
 
