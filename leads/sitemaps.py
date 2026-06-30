@@ -9,8 +9,8 @@ class StaticViewSitemap(Sitemap):
     priority = 0.8         # सर्च इंजन रैंकिंग के लिए महत्व (0.0 से 1.0)
 
     def items(self):
-        # ये आपके views.py में मौजूद व्यूज के नाम हैं जिन्हें क्रॉल करना है
-        return ['lead_collection_view', 'pincodes_view', 'statistics_view', 'about_view']
+        # 🎯 यहाँ आपके urls.py में जो 'name=' पैरामीटर दिए गए हैं, वे सटीक होने चाहिए
+        return ['lead_form', 'pincodes', 'statistics', 'about']
 
     def location(self, item):
         return reverse(item)
