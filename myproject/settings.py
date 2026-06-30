@@ -137,4 +137,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # सुपरयूज़र क्रेडेंशियल्स एन्वायरमेंट सेटिंग्स
-os.environ["DJANGO_SUPERUSER_PASSWORD"] = "Snuil@1234"
+os.environ["DJANGO_SUPERUSER_PASSWORD"] = "Sunil@1234"
