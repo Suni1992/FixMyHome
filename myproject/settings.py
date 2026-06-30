@@ -46,7 +46,6 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Application definition
 
-# 🎯 ध्यान दें: यहाँ हमने 'django.contrib.sitemaps' को जोड़ा है
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -54,7 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sitemaps',  # 🚀 यह लाइन डैंगो को sitemap.xml ढूंढने में मदद करेगी
+    'django.contrib.sitemaps',  # 🎯 गूगल रैंकिंग के लिए साइटमैप ऐप जोड़ा गया
     'leads'
 ]
 
@@ -89,12 +88,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
+# Database Configuration
+# 🎯 यहाँ हमने रेंडर के पुराने डेटाबेस को हटाकर आपके नए Neon.tech फ्री डेटाबेस को जोड़ दिया है!
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://fixmyhome_db_user:BnIya3EPtUtFNj3i74VxyUOXxpol7GC7@dpg-d8qk06pkh4rs73cggdkg-a/fixmyhome_db',
+        default='postgresql://neondb_owner:npg_2bJiQWkrNCt5@ep-autumn-sunset-atbr3jex.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require',
         conn_max_age=600
     )
 }
