@@ -3,8 +3,8 @@ from django.urls import path
 from django.contrib.sitemaps.views import sitemap
 from django.http import HttpResponse  # 🚀 robots.txt को डायरेक्ट टेक्स्ट रिस्पॉन्स भेजने के लिए
 
-# आपके leads ऐप के सभी व्यूज
-from leads.views import lead_collection_view, pincodes_view, statistics_view, about_view
+# आपके leads ऐप के सभी व्यूज (business_card_view यहाँ जोड़ा गया है)
+from leads.views import lead_collection_view, pincodes_view, statistics_view, about_view, business_card_view
 
 # हमने जो leads/sitemaps.py बनाया था, उसमें से StaticViewSitemap को इम्पोर्ट कर रहे हैं
 from leads.sitemaps import StaticViewSitemap
@@ -34,7 +34,10 @@ urlpatterns = [
     path('statistics/', statistics_view, name='statistics'),  # यह URL स्टेटिस्टिक्स पेज के लिए है
     path('about/', about_view, name='about'),  # यह URL एबाउट पेज के लिए है
     
-    # 3. 🎯 गूगल सर्च क्रॉलर के लिए साइटमैप यूआरएल (sitemap.xml)
+    # 3. 🎯 आपका नया डिजिटल विजिटिंग कार्ड/पोस्टर पेज (जैसे: https://fixmyhomes.in/card/)
+    path('card/', business_card_view, name='business_card'),
+    
+    # 4. 🎯 गूगल सर्च क्रॉलर के लिए साइटमैप यूआरएल (sitemap.xml)
     path(
         'sitemap.xml', 
         sitemap, 
@@ -42,6 +45,6 @@ urlpatterns = [
         name='django.contrib.sitemaps.views.sitemap'
     ),
     
-    # 4. 🤖 गूगल बॉट्स के निर्देशों के लिए robots.txt (बिना टेम्पलेट के सीधा सुरक्षित रिस्पॉन्स)
+    # 5. 🤖 गूगल बॉट्स के निर्देशों के लिए robots.txt (बिना टेम्पलेट के सीधा सुरक्षित रिस्पॉन्स)
     path('robots.txt', robots_txt_view),
 ]

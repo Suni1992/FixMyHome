@@ -201,3 +201,8 @@ def statistics_view(request):
 # 4. यह फंक्शन about.html पेज को लोड करेगा
 def about_view(request):
     return render(request, 'leads/about.html')
+
+
+# 5. 🎯 यह फंक्शन आपके डिजिटल विजिटिंग कार्ड (Poster) को लोड करेगा
+def business_card_view(request):
+    return render(request, 'leads/business_card.html')

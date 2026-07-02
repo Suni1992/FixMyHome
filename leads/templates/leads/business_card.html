@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunil Prajapati - FixMyHome Gorakhpur</title>
+    <!-- Tailwind CSS CDN for high-end styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google tag (gtag.js) - Google Analytics Live Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKFNX4D7MG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BKFNX4D7MG');
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+        }
+        /* 📐 कार्ड का आकार और ज्यामितीय फोल्ड (image_6f205e.png की तरह) */
+        .card-container {
+            max-width: 380px;
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .diagonal-split {
+            position: relative;
+            background: linear-gradient(135deg, #00b0ff, #0072ff);
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .diagonal-split::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: #ffffff;
+            clip-path: polygon(100% 100%, 0 100%, 0 0, 100% 70%);
+        }
+        .shadow-effect {
+            position: absolute;
+            bottom: 28px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: rgba(0, 80, 200, 0.3);
+            clip-path: polygon(100% 100%, 0 100%, 0 0, 100% 40%);
+            z-index: 5;
+        }
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen p-4">
+
+<div class="card-container bg-white flex flex-col">
+    <!-- 🔵 शीर्ष भाग (नीला बैकग्राउंड और लोगो) -->
+    <div class="diagonal-split relative text-white text-center p-6">
+        <!-- 🏠 सुरक्षात्मक शील्ड और रेंच लोगो (FixMyHome थीम) -->
+        <div class="bg-white/10 p-4 rounded-full backdrop-blur-sm mb-4 border border-white/20 shadow-lg">
+            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <!-- घर की छत -->
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                <!-- रेंच (Wrench) आकार -->
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.5 12.5l5.5-5.5a2.5 2.5 0 113.5 3.5l-5.5 5.5M11.5 12.5a3.5 3.5 0 11-5 5l5-5z"></path>
+            </svg>
+        </div>
+        <h1 class="text-3xl font-black tracking-tight m-0">FixMyHome</h1>
+        <p class="text-xs text-blue-100 uppercase tracking-widest mt-1 font-semibold">Your Home, Repaired!</p>
+        <div class="shadow-effect"></div>
+    </div>
+
+    <!-- ⚪ निचला भाग (सफ़ेद बैकग्राउंड और सुनील की प्रोफाइल जानकारी) -->
+    <div class="p-8 pt-2 flex flex-col text-slate-800">
+        <div class="text-center mb-6">
+            <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight uppercase">Sunil Prajapati</h2>
+            <p class="text-sm text-blue-600 font-bold tracking-wide">Founder & Manager</p>
+        </div>
+
+        <!-- 📞 संपर्क सूची विवरण -->
+        <div class="space-y-4 text-sm font-medium text-slate-600">
+            <!-- मोबाइल नंबर -->
+            <a href="tel:+919198391632" class="flex items-center gap-4 p-2 rounded-lg hover:bg-slate-50 transition">
+                <div class="bg-blue-50 text-blue-600 p-2.5 rounded-full">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                </div>
+                <span>+91 91983 91632</span>
+            </a>
+
+            <!-- इलाका / पता -->
+            <div class="flex items-center gap-4 p-2 rounded-lg">
+                <div class="bg-blue-50 text-blue-600 p-2.5 rounded-full">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                </div>
+                <span>Gorakhpur, Uttar Pradesh, India</span>
+            </div>
+
+            <!-- ईमेल -->
+            <a href="mailto:contact@fixmyhomes.in" class="flex items-center gap-4 p-2 rounded-lg hover:bg-slate-50 transition">
+                <div class="bg-blue-50 text-blue-600 p-2.5 rounded-full">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <span class="break-all">contact@fixmyhomes.in</span>
+            </a>
+
+            <!-- वेबसाइट लिंक -->
+            <a href="https://fixmyhomes.in" target="_blank" class="flex items-center gap-4 p-2 rounded-lg hover:bg-slate-50 transition">
+                <div class="bg-blue-50 text-blue-600 p-2.5 rounded-full">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                </div>
+                <span>www.fixmyhomes.in</span>
+            </a>
+        </div>
+
+        <!-- 🚀 क्विक एक्शन बटन्स -->
+        <div class="grid grid-cols-2 gap-3 mt-6">
+            <!-- सीधे कॉल करने का बटन -->
+            <a href="tel:+919198391632" class="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-blue-500/20 active:scale-95 transition-all duration-150 text-sm">
+                📞 Call Now
+            </a>
+            <!-- सीधे व्हाट्सएप करने का बटन -->
+            <a href="https://wa.me/919198391632?text=Hello%20Sunil,%20I%20want%20to%20enquire%20about%20FixMyHome%20services." target="_blank" class="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-emerald-500/20 active:scale-95 transition-all duration-150 text-sm">
+                💬 WhatsApp
+            </a>
+        </div>
+
+        <!-- 📥 कांटेक्ट सेव करने का जादुई बटन -->
+        <button onclick="downloadVCard()" class="w-100 mt-3 flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-4 rounded-xl shadow-md active:scale-95 transition-all duration-150 text-sm">
+            💾 Save Contact
+        </button>
+    </div>
+</div>
+
+<!-- ⚙️ जादुई स्क्रिप्ट: क्लिक करते ही सुनील का नंबर कस्टमर के फ़ोन में डायरेक्ट सेव हो जाएगा -->
+<script>
+    function downloadVCard() {
+        const vcardData = 
+            "BEGIN:VCARD\n" +
+            "VERSION:3.0\n" +
+            "FN:Sunil Prajapati (FixMyHome)\n" +
+            "ORG:FixMyHome Gorakhpur\n" +
+            "TITLE:Founder & Manager\n" +
+            "TEL;TYPE=CELL,VOICE:+919198391632\n" +
+            "EMAIL;TYPE=PREF,INTERNET:contact@fixmyhomes.in\n" +
+            "URL:https://fixmyhomes.in\n" +
+            "ADR;TYPE=WORK,POSTAL,PARCEL:;;Gorakhpur;Uttar Pradesh;;India\n" +
+            "END:VCARD";
+        
+        const blob = new Blob([vcardData], { type: "text/vcard" });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.style.display = "none";
+        a.href = url;
+        a.download = "Sunil_Prajapati_FixMyHome.vcf";
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+    }
+</script>
+
+</body>
+</html>
