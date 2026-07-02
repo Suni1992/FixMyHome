@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.contrib import admin
 from django.db import models
 from django.utils.html import format_html
-from django.utils.safestring import mark_safe  # 🎯 एरर दूर करने के लिए नया इम्पोर्ट
+from django.utils.safestring import mark_safe
 from .models import Lead
 
 # 📞 अपने चारों वर्कर्स के व्हाट्सएप नंबर्स यहाँ बदलें (कंट्री कोड 91 के साथ बिना स्पेस के लिखें):
@@ -30,7 +30,6 @@ def export_leads_to_csv(modeladmin, request, queryset):
     
     writer = csv.writer(response)
     
-    # 📋 एक्सेल की हेडिंग्स
     writer.writerow([
         'Lead ID', 
         'Customer Name', 
@@ -47,7 +46,6 @@ def export_leads_to_csv(modeladmin, request, queryset):
         'Requirements'
     ])
     
-    # 📥 डेटाबेस से डेटा निकालकर लिखना
     for lead in queryset:
         writer.writerow([
             lead.id,
@@ -70,7 +68,6 @@ def export_leads_to_csv(modeladmin, request, queryset):
 # ⚙️ Django Admin में Leads को रजिस्टर करना और कस्टमाइज़ करना
 @admin.register(Lead)
 class LeadAdmin(admin.ModelAdmin):
-    # 🎯 1. फ्रंट पैनल में दिखाए जाने वाले सभी कॉलम्स (बटन जोड़ने के लिए लिस्ट में शामिल किया गया है)
     list_display = (
         'id', 
         'name', 
@@ -85,7 +82,6 @@ class LeadAdmin(admin.ModelAdmin):
         'amount_paid_status'
     )
     
-    # ⚡ 2. जादुई इनलाइन एडिटिंग (लिस्ट स्क्रीन से ही एडिट और सेव करें!)
     list_editable = (
         'assigned_to', 
         'current_stage', 
@@ -93,7 +89,6 @@ class LeadAdmin(admin.ModelAdmin):
         'amount_paid_status'
     )
     
-    # 🔍 3. दाईं तरफ के बेहतरीन फ़िल्टर्स
     list_filter = (
         'current_stage', 
         'assigned_to', 
@@ -102,7 +97,6 @@ class LeadAdmin(admin.ModelAdmin):
         'created_at'
     )
     
-    # 🔎 4. सर्च करने के लिए एडवांस्ड कीवर्ड्स
     search_fields = (
         'name', 
         'phone', 
@@ -112,25 +106,26 @@ class LeadAdmin(admin.ModelAdmin):
         'assigned_to'
     )
     
-    # 📥 5. एक्सपोर्ट एक्शन जोड़ना
     actions = [export_leads_to_csv]
 
-    # 🔵 6. कस्टमर को कार्ड 4 भेजने वाला ऑटोमेटेड बटन
+    # 🔵 कस्टमर को कार्ड 4 भेजने वाला ऑटोमेटेड बटन (सुंदर ब्लॉककोट कार्ड डिज़ाइन)
     def whatsapp_customer(self, obj):
         if not obj.phone:
             return "-"
         
         phone = clean_phone(obj.phone)
         msg = (
-            f"🙏 *FixMyHome Gorakhpur में आपका स्वागत है!*\n\n"
+            f">>> 🟦 *FIXMYHOME GORAKHPUR*\n"
+            f"────────────────────────\n"
             f"नमस्ते *{obj.name}*,\n"
-            f"FixMyHome पर अपनी लीड दर्ज कराने के लिए आपका धन्यवाद।\n\n"
-            f"हमें आपकी रिक्वेस्ट मिल गई है:\n"
+            f"FixMyHome पर अपनी लीड दर्ज कराने के लिए आपका धन्यवाद।\n"
+            f"────────────────────────\n"
             f"🛠️ *सर्विस:* {obj.service_type or 'Home Service'}\n"
-            f"📍 *एरिया:* {obj.area or 'Gorakhpur'}\n\n"
-            f"हमारा एक्सपर्ट इंजीनियर/वर्कर अगले *30 मिनट* के अंदर आपसे संपर्क करेगा और काम का समय तय करेगा।\n\n"
-            f"📞 किसी भी सहायता के लिए हमें सीधे संपर्क करें: *+91 91983 91632*\n"
-            f"🌐 हमारी वेबसाइट: https://fixmyhomes.in"
+            f"📍 *एरिया:* {obj.area or 'Gorakhpur'}\n"
+            f"────────────────────────\n"
+            f"हमारा एक्सपर्ट इंजीनियर/वर्कर अगले *30 मिनट* के अंदर आपसे संपर्क करेगा।\n\n"
+            f"📞 *हेल्पलाइन:* +91 91983 91632\n"
+            f"🌐 *वेबसाइट:* https://fixmyhomes.in"
         )
         encoded_msg = urllib.parse.quote(msg)
         url = f"https://wa.me/{phone}?text={encoded_msg}"
@@ -140,9 +135,8 @@ class LeadAdmin(admin.ModelAdmin):
         )
     whatsapp_customer.short_description = 'Customer Msg'
 
-    # 🟢 7. वर्कर को कार्ड 3 (जॉब असाइनमेंट) भेजने वाला ऑटोमेटेड बटन
+    # 🟢 वर्कर को कार्ड 3 (जॉब असाइनमेंट) भेजने वाला ऑटोमेटेड बटन (सुंदर ब्लॉककोट कार्ड डिज़ाइन)
     def whatsapp_worker(self, obj):
-        # ⚠️ एरर को ठीक करने के लिए format_html की जगह mark_safe का इस्तेमाल किया गया है
         if not obj.assigned_to:
             return mark_safe('<span style="color: #94a3b8; font-size: 11px;">Not Assigned</span>')
         
@@ -154,16 +148,20 @@ class LeadAdmin(admin.ModelAdmin):
         req_str = obj.requirements or 'कोई विशेष समस्या नहीं लिखी गई'
         
         msg = (
-            f"🚨 *NEW JOB ASSIGNED - FIXMYHOME* 🚨\n\n"
+            f">>> 🟩 *NEW JOB ASSIGNED - FIXMYHOME*\n"
+            f"────────────────────────\n"
             f"नमस्ते टीम, आपको एक नया काम असाइन किया गया है। कृपया ग्राहक से तुरंत संपर्क करें:\n\n"
             f"👤 *ग्राहक का नाम:* {obj.name}\n"
             f"📞 *मोबाइल नंबर:* {obj.phone}\n"
             f"📍 *इलाका / पिन कोड:* {obj.area}\n"
-            f"🏠 *पूरा पता:* {address_str}\n\n"
-            f"🛠️ *काम का प्रकार (Service):* {obj.service_type}\n"
-            f"📝 *ग्राहक की आवश्यकता (Details):* {req_str}\n\n"
+            f"🏠 *पूरा पता:* {address_str}\n"
+            f"────────────────────────\n"
+            f"🛠 *काम का प्रकार (Service):* {obj.service_type}\n"
+            f"📝 *ग्राहक की आवश्यकता (Details):* {req_str}\n"
+            f"────────────────────────\n"
             f"💰 *तय की गई कुल रकम:* ₹{obj.amount_total}\n"
-            f"📊 *पेमेंट स्टेटस:* {obj.get_amount_paid_status_display()}\n\n"
+            f"📊 *पेमेंट स्टेटस:* {obj.get_amount_paid_status_display()}\n"
+            f"────────────────────────\n"
             f"_नोट: काम पूरा होने के बाद एडमिन को तुरंत सूचित करें और फोटो भेजें।_"
         )
         encoded_msg = urllib.parse.quote(msg)
@@ -174,7 +172,7 @@ class LeadAdmin(admin.ModelAdmin):
         )
     whatsapp_worker.short_description = 'Worker Msg'
     
-    # 📊 8. डैशबोर्ड कार्ड्स के लिए लाइव कैलकुलेशन डेटा पास करना
+    # 📊 डैशबोर्ड कार्ड्स के लिए लाइव कैलकुलेशन डेटा पास करना
     def changelist_view(self, request, extra_context=None):
         extra_context = extra_context or {}
         
