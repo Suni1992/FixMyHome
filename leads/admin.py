@@ -107,7 +107,6 @@ class LeadAdmin(admin.ModelAdmin):
         if not worker_phone:
             return mark_safe('<span style="color: #ef4444; font-size: 11px;">No Phone Saved</span>')
         
-        address_str = getattr(obj, 'address', '') or 'पता नहीं लिखा गया'
         # 🔗 इस काम का लाइव वर्कर जॉब कार्ड लिंक
         live_card_url = f"https://fixmyhomes.in/card/worker/{obj.id}/"
         
@@ -119,7 +118,7 @@ class LeadAdmin(admin.ModelAdmin):
             f"> \U0001F4CD *इलाका / पिन कोड:* {obj.area}\n"
             f"> \U0001F6E0 *काम का प्रकार (Service):* {obj.service_type}\n"
             f"> ────────────────────────\n"
-            f font-weight: bold;> \U0001F4F1 *पूरा पता, नंबर और जॉब कार्ड देखने के लिए इस लिंक को खोलें:*\n"
+            f"> \U0001F4F1 *पूरा पता, नंबर और जॉब कार्ड देखने के लिए इस लिंक को खोलें:*\n"
             f"> {live_card_url}\n"
             f"> ────────────────────────\n"
             f"> _नोट: काम पूरा होने के बाद एडमिन को तुरंत सूचित करें और फोटो भेजें।_"
