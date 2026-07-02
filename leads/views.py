@@ -8,7 +8,7 @@ from .models import Lead
 from django.db.models import Count
 from collections import defaultdict
 
-# 📞 वर्कर के फोन नंबर्स का ग्लोबल मैप
+# 📞 वर्कर के फोन नंबर्स का ग्लोबल मैप (WhatsApp Dispatch के लिए)
 WORKER_PHONES = {
     'Ravi Kumar': '919198391632',
     'Amit Sharma': '919198391632',
@@ -186,7 +186,7 @@ def about_view(request):
     return render(request, 'leads/about.html')
 
 
-# 5. 🎯 वर्कर के लिए डायनेमिक डिजिटल जॉब कार्ड
+# 5. 🎯 वर्कर के लिए डायनेमिक डिजिटल जॉब कार्ड (Saves with lead_id parameter)
 def worker_card_view(request, lead_id):
     lead_obj = get_object_or_404(Lead, id=lead_id)
     context = {
@@ -196,10 +196,9 @@ def worker_card_view(request, lead_id):
     return render(request, 'leads/business_card.html', context)
 
 
-# 6. 🎯 ग्राहक के लिए डायनेमिक डिजिटल बुकिंग स्टेटस कार्ड
+# 6. 🎯 ग्राहक के लिए डायनेमिक डिजिटल बुकिंग स्टेटस कार्ड (Saves with lead_id parameter)
 def customer_card_view(request, lead_id):
     lead_obj = get_object_or_404(Lead, id=lead_id)
-    # असाइन किए गए वर्कर का फोन नंबर निकालना
     worker_name = lead_obj.assigned_to
     worker_phone = WORKER_PHONES.get(worker_name, '') if worker_name else ''
     
