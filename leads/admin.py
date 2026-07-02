@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib import admin
 from django.db import models
 from django.utils.html import format_html
+from django.utils.safestring import mark_safe  # 🎯 एरर दूर करने के लिए नया इम्पोर्ट
 from .models import Lead
 
 # 📞 अपने चारों वर्कर्स के व्हाट्सएप नंबर्स यहाँ बदलें (कंट्री कोड 91 के साथ बिना स्पेस के लिखें):
@@ -141,12 +142,13 @@ class LeadAdmin(admin.ModelAdmin):
 
     # 🟢 7. वर्कर को कार्ड 3 (जॉब असाइनमेंट) भेजने वाला ऑटोमेटेड बटन
     def whatsapp_worker(self, obj):
+        # ⚠️ एरर को ठीक करने के लिए format_html की जगह mark_safe का इस्तेमाल किया गया है
         if not obj.assigned_to:
-            return format_html('<span style="color: #94a3b8; font-size: 11px;">Not Assigned</span>')
+            return mark_safe('<span style="color: #94a3b8; font-size: 11px;">Not Assigned</span>')
         
         worker_phone = WORKER_PHONES.get(obj.assigned_to)
         if not worker_phone:
-            return format_html('<span style="color: #ef4444; font-size: 11px;">No Phone Saved</span>')
+            return mark_safe('<span style="color: #ef4444; font-size: 11px;">No Phone Saved</span>')
         
         address_str = getattr(obj, 'address', '') or 'पता नहीं लिखा गया'
         req_str = obj.requirements or 'कोई विशेष समस्या नहीं लिखी गई'
