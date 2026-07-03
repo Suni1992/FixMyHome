@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 🎯 व्हाट्सएप और सोशल मीडिया के लिए डायनेमिक ओपन ग्राफ (OG) मेटा टैग्स -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fixmyhomes.in{{ request.path }}">
+    
+    {% if role == 'worker' %}
+        <meta property="og:title" content="🛠️ नया काम मिला: {{ lead.name }} - {{ lead.service_type }}">
+        <meta property="og:description" content="📍 इलाका: {{ lead.area }} | 💰 तय रकम: ₹{{ lead.amount_total }} | पूरा पता और रास्ता देखने के लिए इस लिंक को खोलें।">
+        <meta property="og:image" content="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=600&auto=format&fit=crop">
+    {% else %}
+        <meta property="og:title" content="🏠 FixMyHome: Booking Confirmed! 🎉">
+        <meta property="og:description" content="नमस्ते {{ lead.name }}, आपकी {{ lead.service_type }} बुकिंग सफलतापूर्वक स्वीकार कर ली गई है। अपना लाइव स्टेटस यहाँ ट्रैक करें।">
+        <meta property="og:image" content="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=600&auto=format&fit=crop">
+    {% endif %}
+
     <title>FixMyHome - Digital Job Portal</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 📸 HTML को Image में बदलने वाली जादुई लाइब्रेरी (html2canvas) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
     <style>
         body {
             background-color: #0f172a; /* Slate 900 */
@@ -15,10 +34,10 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen flex flex-col items-center justify-center p-4 space-y-6">
 
-    <!-- 🎴 main dynamic card container -->
-    <div class="w-full max-w-sm bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-slate-100 flex flex-col justify-between">
+    <!-- 🎴 main dynamic card container (इसे ही फोटो में बदला जाएगा) -->
+    <div id="card-to-download" class="w-full max-w-sm bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-slate-100 flex flex-col justify-between">
         
         <!-- 🔵 Blue Premium Header -->
         <div class="bg-gradient-to-b from-blue-500 to-blue-600 text-white text-center pt-8 pb-10 px-6 relative rounded-b-[2.5rem] shadow-md">
@@ -51,7 +70,7 @@
 
                 <div class="space-y-4">
                     <!-- Client Name -->
-                    <div class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition">
+                    <div class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl">
                         <div class="w-9 h-9 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                             <i class="fa-solid fa-user"></i>
                         </div>
@@ -62,18 +81,18 @@
                     </div>
 
                     <!-- Client Phone -->
-                    <div class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition">
+                    <div class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl">
                         <div class="w-9 h-9 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                             <i class="fa-solid fa-phone"></i>
                         </div>
                         <div class="flex-grow text-left">
                             <p class="text-[10px] uppercase font-bold text-slate-400">मोबाइल नंबर</p>
-                            <a href="tel:{{ lead.phone }}" class="text-sm font-extrabold text-blue-600 hover:underline">{{ lead.phone }}</a>
+                            <span class="text-sm font-extrabold text-blue-600">{{ lead.phone }}</span>
                         </div>
                     </div>
 
                     <!-- Client Location Area -->
-                    <div class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition">
+                    <div class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl">
                         <div class="w-9 h-9 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
@@ -84,7 +103,7 @@
                     </div>
 
                     <!-- Client Full Address -->
-                    <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition">
+                    <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-xl">
                         <div class="w-9 h-9 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                             <i class="fa-solid fa-map"></i>
                         </div>
@@ -95,7 +114,7 @@
                     </div>
 
                     <!-- Service Description -->
-                    <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition">
+                    <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-xl">
                         <div class="w-9 h-9 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                             <i class="fa-solid fa-screwdriver-wrench"></i>
                         </div>
@@ -233,6 +252,42 @@
         </div>
 
     </div>
+
+    <!-- 📥 Standalone Download Button (बाहर ताकि यह इमेज के अंदर कैप्चर न हो) -->
+    <div class="w-full max-w-sm px-4">
+        <button onclick="downloadCardAsPNG()" class="w-full flex items-center justify-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-md py-3 px-6 rounded-2xl shadow-xl transition transform hover:-translate-y-0.5 active:translate-y-0">
+            <i class="fa-solid fa-file-image text-lg"></i>
+            <span>📥 Download Card as Image (PNG)</span>
+        </button>
+    </div>
+
+    <!-- 📸 Image Conversion Script -->
+    <script>
+        function downloadCardAsPNG() {
+            const cardElement = document.getElementById('card-to-download');
+            
+            // html2canvas के साथ हाई-डेफिनिशन स्क्रीनशॉट खींचना
+            html2canvas(cardElement, {
+                useCORS: true,       // छवियों को सुरक्षित लोड करने के लिए
+                scale: 3,            // फोटो की क्लैरिटी को 3 गुना बढ़ाने के लिए (Super Sharp HD)
+                allowTaint: true,
+                backgroundColor: null // पारदर्शी पृष्ठभूमि (Transparent background)
+            }).then(canvas => {
+                // इमेज डाउनलोड लिंक तैयार करना
+                const link = document.createElement('a');
+                {% if role == 'worker' %}
+                    link.download = 'FixMyHome_JobCard_{{ lead.name|slugify }}.png';
+                {% else %}
+                    link.download = 'FixMyHome_StatusCard_{{ lead.name|slugify }}.png';
+                {% endif %}
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            }).catch(err => {
+                console.error("Card download failed: ", err);
+                alert("कार्ड डाउनलोड करने में त्रुटि हुई, कृपया दोबारा प्रयास करें।");
+            });
+        }
+    </script>
 
 </body>
 </html>

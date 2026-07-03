@@ -45,9 +45,11 @@ def export_leads_to_csv(modeladmin, request, queryset):
 
 @admin.register(Lead)
 class LeadAdmin(admin.ModelAdmin):
+    # 🎯 हमने यहाँ दो नए व्यू कॉलम्स—'view_customer_card' और 'view_worker_card' जोड़ दिए हैं
     list_display = (
         'id', 'name', 'phone', 'service_type', 'area', 'assigned_to', 
-        'current_stage', 'whatsapp_customer', 'whatsapp_worker', 
+        'current_stage', 'whatsapp_customer', 'view_customer_card', 
+        'whatsapp_worker', 'view_worker_card',
         'amount_total', 'amount_paid_status'
     )
     
@@ -65,13 +67,12 @@ class LeadAdmin(admin.ModelAdmin):
     
     actions = [export_leads_to_csv]
 
-    # 🔵 ग्राहक को लाइव कन्फर्मेशन कार्ड भेजने वाला ऑटोमेटेड बटन
+    # 🔵 ग्राहक को व्हाट्सएप मैसेज सेंड करने वाला ऑटोमेटेड बटन
     def whatsapp_customer(self, obj):
         if not obj.phone:
             return "-"
         
         phone = clean_phone(obj.phone)
-        # 🔗 इस ग्राहक का लाइव बुकिंग स्टेटस कार्ड लिंक
         live_card_url = f"https://fixmyhomes.in/card/customer/{obj.id}/"
         
         msg = (
@@ -93,12 +94,21 @@ class LeadAdmin(admin.ModelAdmin):
         encoded_msg = urllib.parse.quote(msg)
         url = f"https://wa.me/{phone}?text={encoded_msg}"
         return format_html(
-            '<a class="button" style="background-color: #3b82f6; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: bold;" href="{}" target="_blank">📲 Msg Customer</a>', 
+            '<a class="button" style="background-color: #3b82f6; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: bold;" href="{}" target="_blank">📲 Msg Cust</a>', 
             url
         )
-    whatsapp_customer.short_description = 'Customer Msg'
+    whatsapp_customer.short_description = 'Cust Msg'
 
-    # 🟢 वर्कर को लाइव जॉब असाइनमेंट कार्ड भेजने वाला ऑटोमेटेड बटन
+    # 👁️ ग्राहक का कार्ड सीधे डैंगो एडमिन पैनल से देखने और डाउनलोड करने का बटन
+    def view_customer_card(self, obj):
+        url = f"/card/customer/{obj.id}/"
+        return format_html(
+            '<a href="{}" target="_blank" style="background-color: #6366f1; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: bold;">👁️ View Card</a>',
+            url
+        )
+    view_customer_card.short_description = 'Cust Card'
+
+    # 🟢 वर्कर को व्हाट्सएप मैसेज सेंड करने वाला ऑटोमेटेड बटन
     def whatsapp_worker(self, obj):
         if not obj.assigned_to:
             return mark_safe('<span style="color: #94a3b8; font-size: 11px;">Not Assigned</span>')
@@ -107,7 +117,6 @@ class LeadAdmin(admin.ModelAdmin):
         if not worker_phone:
             return mark_safe('<span style="color: #ef4444; font-size: 11px;">No Phone Saved</span>')
         
-        # 🔗 इस काम का लाइव वर्कर जॉब कार्ड लिंक
         live_card_url = f"https://fixmyhomes.in/card/worker/{obj.id}/"
         
         msg = (
@@ -126,10 +135,19 @@ class LeadAdmin(admin.ModelAdmin):
         encoded_msg = urllib.parse.quote(msg)
         url = f"https://wa.me/{worker_phone}?text={encoded_msg}"
         return format_html(
-            '<a class="button" style="background-color: #10b981; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: bold;" href="{}" target="_blank">🟢 Send to Worker</a>', 
+            '<a class="button" style="background-color: #10b981; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: bold;" href="{}" target="_blank">🟢 Send Worker</a>', 
             url
         )
     whatsapp_worker.short_description = 'Worker Msg'
+
+    # 👁️ वर्कर का जॉब कार्ड सीधे डैंगो एडमिन पैनल से देखने और डाउनलोड करने का बटन
+    def view_worker_card(self, obj):
+        url = f"/card/worker/{obj.id}/"
+        return format_html(
+            '<a href="{}" target="_blank" style="background-color: #4f46e5; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: bold;">👁️ View Card</a>',
+            url
+        )
+    view_worker_card.short_description = 'Work Card'
     
     def changelist_view(self, request, extra_context=None):
         extra_context = extra_context or {}
