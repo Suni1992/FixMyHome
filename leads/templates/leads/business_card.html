@@ -280,16 +280,24 @@
 
     </div>
 
-    <!-- 📥 Standalone Download Button -->
-    <div class="w-full max-w-md px-4">
+    <!-- 📥 Standalone Share & Download Buttons Container (This is non-downloadable) -->
+    <div class="w-full max-w-md px-4 flex flex-col space-y-3">
+        <!-- 1. 📥 Traditional Download Button -->
         <button onclick="downloadCardAsPNG()" class="w-full flex items-center justify-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-sm py-3 px-6 rounded-2xl shadow-xl transition transform hover:-translate-y-0.5 active:translate-y-0">
             <i class="fa-solid fa-file-image text-md"></i>
             <span>📥 Download Card as Image (PNG)</span>
         </button>
+
+        <!-- 2. 📤 Advanced Direct WhatsApp Share Button (Shares as real Photo!) -->
+        <button onclick="shareCardAsImage()" class="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-extrabold text-sm py-3 px-6 rounded-2xl shadow-xl transition transform hover:-translate-y-0.5 active:translate-y-0">
+            <i class="fa-solid fa-share-nodes text-md"></i>
+            <span>📤 Share Directly on WhatsApp (as Photo)</span>
+        </button>
     </div>
 
-    <!-- 📸 Image Conversion Script (सुपर HD डाउनलोड लॉजिक) -->
+    <!-- 📸 Image Conversion Script (सुपर HD डाउनलोड और डायरेक्ट इमेज शेयरिंग लॉजिक) -->
     <script>
+        // 1. कार्ड को फोटो की तरह डाउनलोड करने का फंक्शन
         function downloadCardAsPNG() {
             const cardElement = document.getElementById('card-to-download');
             
@@ -311,6 +319,54 @@
                 console.error("Card download failed: ", err);
                 alert("कार्ड डाउनलोड करने में त्रुटि हुई, कृपया दोबारा प्रयास करें।");
             });
+        }
+
+        // 2. कार्ड को सीधे व्हाट्सएप पर इमेज की तरह शेयर करने का नया एडवांस्ड फंक्शन
+        async function shareCardAsImage() {
+            const cardElement = document.getElementById('card-to-download');
+            
+            try {
+                // html2canvas से कार्ड को पहले कैनवास में बदलें
+                const canvas = await html2canvas(cardElement, {
+                    useCORS: true,
+                    scale: 3,
+                    allowTaint: true,
+                    backgroundColor: null
+                });
+                
+                // कैनवास को Blob ऑब्जेक्ट में कन्वर्ट करें
+                canvas.toBlob(async (blob) => {
+                    if (!blob) {
+                        alert("इमेज जनरेट करने में त्रुटि हुई।");
+                        return;
+                    }
+                    
+                    // इमेज फाइल नेम तय करें
+                    const filename = {% if role == 'worker' %}'FixMyHome_JobCard_{{ lead.name|slugify }}.png'{% else %}'FixMyHome_StatusCard_{{ lead.name|slugify }}.png'{% endif %};
+                    const file = new File([blob], filename, { type: 'image/png' });
+                    
+                    // जांचें कि क्या ब्राउज़र Web Share API और फाइल शेयरिंग को सपोर्ट करता है
+                    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                        try {
+                            await navigator.share({
+                                files: [file],
+                                title: 'FixMyHome Digital Card',
+                                text: 'FixMyHome Gorakhpur'
+                            });
+                        } catch (shareError) {
+                            console.log("Sharing cancelled or failed", shareError);
+                        }
+                    } else {
+                        // अगर डिवाइस पर Direct Share सपोर्टेड नहीं है (जैसे Desktop PC), तो बैकअप के तौर पर डाउनलोड कर लें
+                        alert("आपके ब्राउज़र/डिवाइस में डायरेक्ट इमेज शेयरिंग सपोर्टेड नहीं है। कार्ड इमेज को आपके डिवाइस में डाउनलोड किया जा रहा है।");
+                        downloadCardAsPNG();
+                    }
+                }, 'image/png');
+                
+            } catch (err) {
+                console.error("Direct share failed: ", err);
+                alert("शेयर करने में त्रुटि हुई, कृपया दोबारा प्रयास करें।");
+            }
         }
     </script>
 
