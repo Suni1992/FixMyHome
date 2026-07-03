@@ -75,9 +75,9 @@
                         <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0">
                             <i class="fa-solid fa-user-check text-xs"></i>
                         </div>
-                        <div class="flex-grow text-left">
+                        <div class="flex-grow text-left min-w-0">
                             <p class="text-[9px] uppercase font-bold text-blue-600">असाइन किए गए कारीगर (Worker)</p>
-                            <p class="text-xs font-black text-slate-800">{{ lead.get_assigned_to_display }}</p>
+                            <p class="text-xs font-black text-slate-800 break-words leading-tight">{{ lead.get_assigned_to_display }}</p>
                         </div>
                     </div>
                     {% endif %}
@@ -89,9 +89,9 @@
                             <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                                 <i class="fa-solid fa-user text-xs"></i>
                             </div>
-                            <div class="flex-grow text-left truncate">
+                            <div class="flex-grow text-left min-w-0">
                                 <p class="text-[9px] uppercase font-bold text-slate-400">ग्राहक का नाम</p>
-                                <p class="text-xs font-bold text-slate-800 truncate">{{ lead.name }}</p>
+                                <p class="text-xs font-bold text-slate-800 break-words leading-tight">{{ lead.name }}</p>
                             </div>
                         </div>
 
@@ -100,9 +100,9 @@
                             <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                                 <i class="fa-solid fa-phone text-xs"></i>
                             </div>
-                            <div class="flex-grow text-left">
+                            <div class="flex-grow text-left min-w-0">
                                 <p class="text-[9px] uppercase font-bold text-slate-400">मोबाइल नंबर</p>
-                                <span class="text-xs font-extrabold text-blue-600">{{ lead.phone }}</span>
+                                <span class="text-xs font-extrabold text-blue-600 break-all leading-tight">{{ lead.phone }}</span>
                             </div>
                         </div>
                     </div>
@@ -114,9 +114,9 @@
                             <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                                 <i class="fa-solid fa-location-dot text-xs"></i>
                             </div>
-                            <div class="flex-grow text-left truncate">
+                            <div class="flex-grow text-left min-w-0">
                                 <p class="text-[9px] uppercase font-bold text-slate-400">इलाका / पिन कोड</p>
-                                <p class="text-xs font-bold text-slate-800 truncate">{{ lead.area }}</p>
+                                <p class="text-xs font-bold text-slate-800 break-words leading-tight">{{ lead.area }}</p>
                             </div>
                         </div>
 
@@ -125,9 +125,9 @@
                             <div class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center flex-shrink-0">
                                 <i class="fa-solid fa-indian-rupee-sign text-xs"></i>
                             </div>
-                            <div class="flex-grow text-left">
+                            <div class="flex-grow text-left min-w-0">
                                 <p class="text-[9px] uppercase font-bold text-green-600">कुल तय रकम</p>
-                                <p class="text-xs font-black text-green-700">₹{{ lead.amount_total }}</p>
+                                <p class="text-xs font-black text-green-700 leading-tight">₹{{ lead.amount_total }}</p>
                             </div>
                         </div>
                     </div>
@@ -137,9 +137,9 @@
                         <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                             <i class="fa-solid fa-map text-xs"></i>
                         </div>
-                        <div class="flex-grow text-left">
+                        <div class="flex-grow text-left min-w-0">
                             <p class="text-[9px] uppercase font-bold text-slate-400">घर का पूरा पता</p>
-                            <p class="text-[11px] text-slate-600 font-medium leading-normal mt-0.5">{{ lead.address|default:"कोई विशेष पता नहीं लिखा गया है" }}</p>
+                            <p class="text-[11px] text-slate-600 font-medium leading-normal mt-0.5 break-words">{{ lead.address|default:"कोई विशेष पता नहीं लिखा गया है" }}</p>
                         </div>
                     </div>
 
@@ -148,10 +148,10 @@
                         <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                             <i class="fa-solid fa-screwdriver-wrench text-xs"></i>
                         </div>
-                        <div class="flex-grow text-left">
+                        <div class="flex-grow text-left min-w-0">
                             <p class="text-[9px] uppercase font-bold text-slate-400">काम का प्रकार (Service)</p>
-                            <p class="text-xs font-extrabold text-slate-800">{{ lead.service_type }}</p>
-                            <p class="text-[11px] text-slate-500 mt-0.5 leading-normal">{{ lead.requirements|default:"कोई विशेष आवश्यकता नहीं लिखी गई है" }}</p>
+                            <p class="text-xs font-extrabold text-slate-800 break-words leading-tight">{{ lead.service_type }}</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5 leading-normal break-words">{{ lead.requirements|default:"कोई विशेष आवश्यकता नहीं लिखी गई है" }}</p>
                         </div>
                     </div>
                 </div>
@@ -213,16 +213,16 @@
                             <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                                 <i class="fa-solid fa-hand-holding-hand text-xs"></i>
                             </div>
-                            <div class="flex-grow text-left truncate">
+                            <div class="flex-grow text-left min-w-0">
                                 <p class="text-[9px] uppercase font-bold text-slate-400">चुनी हुई सर्विस</p>
-                                <p class="text-xs font-extrabold text-slate-800 truncate">{{ lead.service_type }}</p>
+                                <p class="text-xs font-extrabold text-slate-800 break-words leading-tight">{{ lead.service_type }}</p>
                             </div>
                         </div>
 
                         <!-- Payment Status -->
-                        <div class="flex flex-col justify-center p-2.5 bg-slate-50 border border-slate-100 rounded-xl text-left">
+                        <div class="flex flex-col justify-center p-2.5 bg-slate-50 border border-slate-100 rounded-xl text-left min-w-0">
                             <p class="text-[9px] uppercase font-bold text-slate-400">पेमेंट की स्थिति</p>
-                            <span class="text-[10px] font-black uppercase mt-0.5 {% if lead.amount_paid_status == 'paid' %}text-green-600{% elif lead.amount_paid_status == 'partially_paid' %}text-yellow-600{% else %}text-red-500{% endif %}">
+                            <span class="text-[10px] font-black uppercase mt-0.5 break-words leading-tight {% if lead.amount_paid_status == 'paid' %}text-green-600{% elif lead.amount_paid_status == 'partially_paid' %}text-yellow-600{% else %}text-red-500{% endif %}">
                                 {{ lead.get_amount_paid_status_display }}
                             </span>
                         </div>
@@ -234,11 +234,11 @@
                         <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                             <i class="fa-solid fa-user-tie text-xs"></i>
                         </div>
-                        <div class="flex-grow text-left">
+                        <div class="flex-grow text-left min-w-0">
                             <p class="text-[9px] uppercase font-bold text-slate-400">असाइन किए गए इंजीनियर</p>
-                            <p class="text-xs font-extrabold text-slate-800">{{ lead.get_assigned_to_display }}</p>
+                            <p class="text-xs font-extrabold text-slate-800 break-words leading-tight">{{ lead.get_assigned_to_display }}</p>
                             {% if lead.engineer_status %}
-                                <p class="text-[10px] text-blue-600 font-bold mt-0.5">🚀 {{ lead.engineer_status }}</p>
+                                <p class="text-[10px] text-blue-600 font-bold mt-0.5 break-words leading-tight">🚀 {{ lead.engineer_status }}</p>
                             {% endif %}
                         </div>
                     </div>
