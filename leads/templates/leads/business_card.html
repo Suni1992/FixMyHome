@@ -36,21 +36,21 @@
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center p-4 space-y-6">
 
-    <!-- 🎴 main dynamic card container (इसे ही फोटो में बदला जाएगा) -->
-    <div id="card-to-download" class="w-full max-w-sm bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-slate-100 flex flex-col justify-between">
+    <!-- 🎴 main dynamic card container (चौड़ाई बढ़ाई गई है: max-w-md) -->
+    <div id="card-to-download" class="w-full max-w-md bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-slate-100 flex flex-col justify-between">
         
-        <!-- 🔵 Blue Premium Header -->
-        <div class="bg-gradient-to-b from-blue-500 to-blue-600 text-white text-center pt-8 pb-10 px-6 relative rounded-b-[2.5rem] shadow-md">
+        <!-- 🔵 Blue Premium Header (पैडिंग कम की गई है) -->
+        <div class="bg-gradient-to-b from-blue-500 to-blue-600 text-white text-center pt-6 pb-8 px-6 relative rounded-b-[2.5rem] shadow-md">
             <!-- Round Floating Logo/Icon Box -->
-            <div class="w-20 h-20 bg-white text-blue-600 rounded-full flex items-center justify-center mx-auto shadow-lg mb-4 border-4 border-blue-100/30">
-                <i class="fa-solid fa-house-chimney-crack text-3xl"></i>
+            <div class="w-16 h-16 bg-white text-blue-600 rounded-full flex items-center justify-center mx-auto shadow-lg mb-3 border-4 border-blue-100/30">
+                <i class="fa-solid fa-house-chimney-crack text-2xl"></i>
             </div>
             
-            <h1 class="text-2xl font-black tracking-wide">FixMyHome</h1>
-            <p class="text-xs uppercase font-semibold text-blue-100 tracking-widest mt-1">YOUR HOME, REPAIRED!</p>
+            <h1 class="text-xl font-black tracking-wide">FixMyHome</h1>
+            <p class="text-[10px] uppercase font-semibold text-blue-100 tracking-widest mt-0.5">YOUR HOME, REPAIRED!</p>
             
             <!-- Dynamic Status Badge/Header text -->
-            <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs font-bold px-5 py-1.5 rounded-full uppercase tracking-wider shadow-md">
+            <div class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow-md">
                 {% if role == 'worker' %}
                      👨‍🔧 Worker Portal
                 {% else %}
@@ -59,98 +59,122 @@
             </div>
         </div>
 
-        <!-- 📄 Card Body Content -->
-        <div class="px-6 pt-8 pb-6 flex-grow">
+        <!-- 📄 Card Body Content (स्पेसिंग और ग्रिड लेआउट ऑप्टिमाइज़्ड) -->
+        <div class="px-5 pt-7 pb-4 flex-grow">
             {% if role == 'worker' %}
                 <!-- 👷 WORKER DISPATCH INFO VIEW -->
-                <div class="text-center mb-6">
-                    <h2 class="text-xl font-extrabold text-slate-800 uppercase tracking-wide">JOB DETAILS</h2>
-                    <p class="text-xs text-blue-600 font-bold mt-1">गोरखपुर सर्विस टीम</p>
+                <div class="text-center mb-4">
+                    <h2 class="text-lg font-extrabold text-slate-800 uppercase tracking-wide">JOB DETAILS</h2>
+                    <p class="text-[10px] text-blue-600 font-bold">गोरखपुर सर्विस टीम</p>
                 </div>
 
-                <div class="space-y-4">
-                    <!-- Client Name -->
-                    <div class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl">
-                        <div class="w-9 h-9 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-user"></i>
+                <div class="space-y-3">
+                    <!-- 🛠️ Assigned Worker (कारीगर का नाम - शीर्ष पर फुल विड्थ) -->
+                    {% if lead.assigned_to %}
+                    <div class="flex items-center space-x-3 p-2.5 bg-blue-50/70 border border-blue-100 rounded-xl shadow-sm">
+                        <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-user-check text-xs"></i>
                         </div>
                         <div class="flex-grow text-left">
-                            <p class="text-[10px] uppercase font-bold text-slate-400">ग्राहक का नाम</p>
-                            <p class="text-sm font-bold text-slate-800">{{ lead.name }}</p>
+                            <p class="text-[9px] uppercase font-bold text-blue-600">असाइन किए गए कारीगर (Worker)</p>
+                            <p class="text-xs font-black text-slate-800">{{ lead.get_assigned_to_display }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- 👥 Row 1: 2-Column Grid (Name & Phone) -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- Client Name -->
+                        <div class="flex items-center space-x-2.5 p-2.5 bg-slate-50 rounded-xl">
+                            <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-user text-xs"></i>
+                            </div>
+                            <div class="flex-grow text-left truncate">
+                                <p class="text-[9px] uppercase font-bold text-slate-400">ग्राहक का नाम</p>
+                                <p class="text-xs font-bold text-slate-800 truncate">{{ lead.name }}</p>
+                            </div>
+                        </div>
+
+                        <!-- Client Phone -->
+                        <div class="flex items-center space-x-2.5 p-2.5 bg-slate-50 rounded-xl">
+                            <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-phone text-xs"></i>
+                            </div>
+                            <div class="flex-grow text-left">
+                                <p class="text-[9px] uppercase font-bold text-slate-400">मोबाइल नंबर</p>
+                                <span class="text-xs font-extrabold text-blue-600">{{ lead.phone }}</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Client Phone -->
-                    <div class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl">
-                        <div class="w-9 h-9 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-phone"></i>
+                    <!-- 📍 Row 2: 2-Column Grid (Area & Total Amount) -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- Client Location Area -->
+                        <div class="flex items-center space-x-2.5 p-2.5 bg-slate-50 rounded-xl">
+                            <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-location-dot text-xs"></i>
+                            </div>
+                            <div class="flex-grow text-left truncate">
+                                <p class="text-[9px] uppercase font-bold text-slate-400">इलाका / पिन कोड</p>
+                                <p class="text-xs font-bold text-slate-800 truncate">{{ lead.area }}</p>
+                            </div>
                         </div>
-                        <div class="flex-grow text-left">
-                            <p class="text-[10px] uppercase font-bold text-slate-400">मोबाइल नंबर</p>
-                            <span class="text-sm font-extrabold text-blue-600">{{ lead.phone }}</span>
+
+                        <!-- Work Deal Amount -->
+                        <div class="flex items-center space-x-2.5 p-2.5 bg-green-50 border border-green-100 rounded-xl">
+                            <div class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-indian-rupee-sign text-xs"></i>
+                            </div>
+                            <div class="flex-grow text-left">
+                                <p class="text-[9px] uppercase font-bold text-green-600">कुल तय रकम</p>
+                                <p class="text-xs font-black text-green-700">₹{{ lead.amount_total }}</p>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Client Location Area -->
-                    <div class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl">
-                        <div class="w-9 h-9 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-location-dot"></i>
+                    <!-- Client Full Address (Full width) -->
+                    <div class="flex items-start space-x-3 p-2.5 bg-slate-50 rounded-xl">
+                        <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i class="fa-solid fa-map text-xs"></i>
                         </div>
                         <div class="flex-grow text-left">
-                            <p class="text-[10px] uppercase font-bold text-slate-400">इलाका / पिन कोड</p>
-                            <p class="text-sm font-bold text-slate-800">{{ lead.area }}</p>
+                            <p class="text-[9px] uppercase font-bold text-slate-400">घर का पूरा पता</p>
+                            <p class="text-[11px] text-slate-600 font-medium leading-normal mt-0.5">{{ lead.address|default:"कोई विशेष पता नहीं लिखा गया है" }}</p>
                         </div>
                     </div>
 
-                    <!-- Client Full Address -->
-                    <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-xl">
-                        <div class="w-9 h-9 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <i class="fa-solid fa-map"></i>
+                    <!-- Service Description (Full width) -->
+                    <div class="flex items-start space-x-3 p-2.5 bg-slate-50 rounded-xl">
+                        <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i class="fa-solid fa-screwdriver-wrench text-xs"></i>
                         </div>
                         <div class="flex-grow text-left">
-                            <p class="text-[10px] uppercase font-bold text-slate-400">घर का पूरा पता</p>
-                            <p class="text-xs text-slate-600 font-medium leading-relaxed mt-0.5">{{ lead.address|default:"कोई विशेष पता नहीं लिखा गया है" }}</p>
+                            <p class="text-[9px] uppercase font-bold text-slate-400">काम का प्रकार (Service)</p>
+                            <p class="text-xs font-extrabold text-slate-800">{{ lead.service_type }}</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5 leading-normal">{{ lead.requirements|default:"कोई विशेष आवश्यकता नहीं लिखी गई है" }}</p>
                         </div>
-                    </div>
-
-                    <!-- Service Description -->
-                    <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-xl">
-                        <div class="w-9 h-9 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <i class="fa-solid fa-screwdriver-wrench"></i>
-                        </div>
-                        <div class="flex-grow text-left">
-                            <p class="text-[10px] uppercase font-bold text-slate-400">काम का प्रकार (Service)</p>
-                            <p class="text-sm font-extrabold text-slate-800">{{ lead.service_type }}</p>
-                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">{{ lead.requirements|default:"कोई विशेष आवश्यकता नहीं लिखी गई है" }}</p>
-                        </div>
-                    </div>
-
-                    <!-- Work Deal Amount -->
-                    <div class="flex items-center justify-between p-3 bg-green-50/50 border border-green-100 rounded-xl">
-                        <span class="text-xs font-bold text-slate-500 uppercase">कुल तय रकम:</span>
-                        <span class="text-base font-black text-green-700">₹{{ lead.amount_total }}</span>
                     </div>
                 </div>
 
             {% else %}
                 <!-- 🧑‍💼 CUSTOMER TRACKING VIEW -->
-                <div class="text-center mb-6">
-                    <h2 class="text-xl font-extrabold text-slate-800 uppercase tracking-wide">BOOKING CONFIRMED</h2>
-                    <p class="text-xs text-slate-500 mt-1">नमस्ते, <span class="font-bold text-blue-600">{{ lead.name }}</span>! आपकी बुकिंग कन्फर्म हो चुकी है।</p>
+                <div class="text-center mb-4">
+                    <h2 class="text-lg font-extrabold text-slate-800 uppercase tracking-wide">BOOKING CONFIRMED</h2>
+                    <p class="text-xs text-slate-500 mt-0.5">नमस्ते, <span class="font-bold text-blue-600">{{ lead.name }}</span>! आपकी बुकिंग कन्फर्म हो चुकी है।</p>
                 </div>
 
-                <div class="space-y-4">
-                    <!-- Dynamic Tracker/Progress Stepper -->
-                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                        <p class="text-[10px] uppercase font-bold text-slate-400 mb-3 text-center tracking-widest">लाइव काम की स्थिति (Status)</p>
+                <div class="space-y-3">
+                    <!-- Dynamic Tracker/Progress Stepper (Compact) -->
+                    <div class="p-3 bg-slate-50 rounded-2xl border border-slate-100">
+                        <p class="text-[9px] uppercase font-bold text-slate-400 mb-2.5 text-center tracking-widest">लाइव काम की स्थिति (Status)</p>
                         
                         <div class="relative flex items-center justify-between px-2">
                             <!-- Visual Progress Bar Gray Line -->
-                            <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-1 bg-slate-200 -z-10 rounded"></div>
+                            <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 bg-slate-200 -z-10 rounded"></div>
                             
                             <!-- New Stage -->
                             <div class="flex flex-col items-center">
-                                <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold {% if lead.current_stage != 'cancelled' %}bg-blue-600 text-white{% else %}bg-slate-300 text-slate-600{% endif %} z-10 shadow">
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold {% if lead.current_stage != 'cancelled' %}bg-blue-600 text-white{% else %}bg-slate-300 text-slate-600{% endif %} z-10 shadow">
                                     <i class="fa-solid fa-circle-check"></i>
                                 </div>
                                 <span class="text-[8px] font-bold mt-1 text-slate-600">दर्ज</span>
@@ -158,7 +182,7 @@
 
                             <!-- Assigned Stage -->
                             <div class="flex flex-col items-center">
-                                <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold {% if lead.current_stage == 'assigned' or lead.current_stage == 'in_progress' or lead.current_stage == 'completed' %}bg-blue-600 text-white{% else %}bg-slate-200 text-slate-500{% endif %} z-10 shadow">
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold {% if lead.current_stage == 'assigned' or lead.current_stage == 'in_progress' or lead.current_stage == 'completed' %}bg-blue-600 text-white{% else %}bg-slate-200 text-slate-500{% endif %} z-10 shadow">
                                     <i class="fa-solid fa-user-gear"></i>
                                 </div>
                                 <span class="text-[8px] font-bold mt-1 text-slate-600">असाइन</span>
@@ -166,15 +190,15 @@
 
                             <!-- Work in Progress Stage -->
                             <div class="flex flex-col items-center">
-                                <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold {% if lead.current_stage == 'in_progress' or lead.current_stage == 'completed' %}bg-blue-600 text-white{% else %}bg-slate-200 text-slate-500{% endif %} z-10 shadow">
-                                    <i class="fa-solid fa-screwdriver-wrench-spinner fa-spin-slow"></i>
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold {% if lead.current_stage == 'in_progress' or lead.current_stage == 'completed' %}bg-blue-600 text-white{% else %}bg-slate-200 text-slate-500{% endif %} z-10 shadow">
+                                    <i class="fa-solid fa-screwdriver-wrench"></i>
                                 </div>
                                 <span class="text-[8px] font-bold mt-1 text-slate-600">चालू</span>
                             </div>
 
                             <!-- Completed Stage -->
                             <div class="flex flex-col items-center">
-                                <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold {% if lead.current_stage == 'completed' %}bg-green-600 text-white{% else %}bg-slate-200 text-slate-500{% endif %} z-10 shadow">
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold {% if lead.current_stage == 'completed' %}bg-green-600 text-white{% else %}bg-slate-200 text-slate-500{% endif %} z-10 shadow">
                                     <i class="fa-solid fa-clipboard-check"></i>
                                 </div>
                                 <span class="text-[8px] font-bold mt-1 text-slate-600">सफल</span>
@@ -182,70 +206,73 @@
                         </div>
                     </div>
 
-                    <!-- Details Table -->
-                    <div class="space-y-3">
-                        <div class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl">
-                            <div class="w-9 h-9 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-hand-holding-hand"></i>
+                    <!-- Row 1: 2-Column Grid (Service Type & Payment Status) -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- Chosen Service -->
+                        <div class="flex items-center space-x-2.5 p-2.5 bg-slate-50 rounded-xl">
+                            <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-hand-holding-hand text-xs"></i>
                             </div>
-                            <div class="flex-grow text-left">
-                                <p class="text-[10px] uppercase font-bold text-slate-400">चुनी हुई सर्विस</p>
-                                <p class="text-sm font-extrabold text-slate-800">{{ lead.service_type }}</p>
+                            <div class="flex-grow text-left truncate">
+                                <p class="text-[9px] uppercase font-bold text-slate-400">चुनी हुई सर्विस</p>
+                                <p class="text-xs font-extrabold text-slate-800 truncate">{{ lead.service_type }}</p>
                             </div>
                         </div>
 
-                        {% if lead.assigned_to %}
-                        <div class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl">
-                            <div class="w-9 h-9 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-user-tie"></i>
-                            </div>
-                            <div class="flex-grow text-left">
-                                <p class="text-[10px] uppercase font-bold text-slate-400">असाइन किए गए इंजीनियर</p>
-                                <p class="text-sm font-extrabold text-slate-800">{{ lead.get_assigned_to_display }}</p>
-                                {% if lead.engineer_status %}
-                                    <p class="text-xs text-blue-600 font-bold mt-0.5">🚀 {{ lead.engineer_status }}</p>
-                                {% endif %}
-                            </div>
-                        </div>
-                        {% endif %}
-
-                        <div class="flex items-center justify-between p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                            <span class="text-xs font-bold text-slate-500 uppercase">पेमेंट की स्थिति (Payment):</span>
-                            <span class="text-xs font-extrabold px-3 py-1 rounded-full uppercase {% if lead.amount_paid_status == 'paid' %}bg-green-100 text-green-700{% elif lead.amount_paid_status == 'partially_paid' %}bg-yellow-100 text-yellow-700{% else %}bg-red-100 text-red-700{% endif %}">
+                        <!-- Payment Status -->
+                        <div class="flex flex-col justify-center p-2.5 bg-slate-50 border border-slate-100 rounded-xl text-left">
+                            <p class="text-[9px] uppercase font-bold text-slate-400">पेमेंट की स्थिति</p>
+                            <span class="text-[10px] font-black uppercase mt-0.5 {% if lead.amount_paid_status == 'paid' %}text-green-600{% elif lead.amount_paid_status == 'partially_paid' %}text-yellow-600{% else %}text-red-500{% endif %}">
                                 {{ lead.get_amount_paid_status_display }}
                             </span>
                         </div>
                     </div>
+
+                    <!-- Assigned Engineer (Full width) -->
+                    {% if lead.assigned_to %}
+                    <div class="flex items-center space-x-3 p-2.5 bg-slate-50 rounded-xl">
+                        <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-user-tie text-xs"></i>
+                        </div>
+                        <div class="flex-grow text-left">
+                            <p class="text-[9px] uppercase font-bold text-slate-400">असाइन किए गए इंजीनियर</p>
+                            <p class="text-xs font-extrabold text-slate-800">{{ lead.get_assigned_to_display }}</p>
+                            {% if lead.engineer_status %}
+                                <p class="text-[10px] text-blue-600 font-bold mt-0.5">🚀 {{ lead.engineer_status }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
             {% endif %}
         </div>
 
-        <!-- 🔗 Action Buttons -->
-        <div class="p-6 bg-slate-50 border-t border-slate-100 space-y-2 rounded-b-[2rem]">
+        <!-- 🔗 Action Buttons (कस्टमर केयर/मैप बटन्स) -->
+        <div class="p-4 bg-slate-50 border-t border-slate-100 space-y-2 rounded-b-[2rem]">
             {% if role == 'worker' %}
                 <!-- Worker Action Buttons -->
                 <div class="grid grid-cols-2 gap-2">
-                    <a href="tel:{{ lead.phone }}" class="flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm py-3 px-4 rounded-xl shadow transition transform hover:-translate-y-0.5 active:translate-y-0">
+                    <a href="tel:{{ lead.phone }}" class="flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs py-2.5 px-3 rounded-xl shadow transition transform hover:-translate-y-0.5">
                         <i class="fa-solid fa-phone"></i>
                         <span>कस्टमर कॉल</span>
                     </a>
-                    <a href="https://www.google.com/maps/search/?api=1&query={{ lead.address|urlencode }}+{{ lead.area|urlencode }}" target="_blank" class="flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white font-extrabold text-sm py-3 px-4 rounded-xl shadow transition transform hover:-translate-y-0.5 active:translate-y-0">
+                    <a href="https://www.google.com/maps/search/?api=1&query={{ lead.address|urlencode }}+{{ lead.area|urlencode }}" target="_blank" class="flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white font-extrabold text-xs py-2.5 px-3 rounded-xl shadow transition transform hover:-translate-y-0.5">
                         <i class="fa-solid fa-map-location-dot"></i>
                         <span>नक्शा देखें</span>
                     </a>
                 </div>
-                <a href="https://wa.me/91{{ lead.phone|slice:'-10:' }}" target="_blank" class="w-full flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm py-3 px-4 rounded-xl shadow transition transform hover:-translate-y-0.5">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                <a href="https://wa.me/91{{ lead.phone|slice:'-10:' }}" target="_blank" class="w-full flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs py-2.5 px-3 rounded-xl shadow transition transform hover:-translate-y-0.5">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
                     <span>व्हाट्सएप संदेश भेजें</span>
                 </a>
             {% else %}
                 <!-- Customer Action Buttons -->
-                <a href="tel:+919198391632" class="w-full flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm py-3 px-4 rounded-xl shadow transition transform hover:-translate-y-0.5 active:translate-y-0">
+                <a href="tel:+919198391632" class="w-full flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs py-2.5 px-3 rounded-xl shadow transition transform hover:-translate-y-0.5">
                     <i class="fa-solid fa-phone-volume"></i>
                     <span>कस्टमर केयर सपोर्ट</span>
                 </a>
-                <a href="https://wa.me/919198391632" target="_blank" class="w-full flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm py-3 px-4 rounded-xl shadow transition transform hover:-translate-y-0.5">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                <a href="https://wa.me/919198391632" target="_blank" class="w-full flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs py-2.5 px-3 rounded-xl shadow transition transform hover:-translate-y-0.5">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
                     <span>सीधे व्हाट्सएप करें</span>
                 </a>
             {% endif %}
@@ -253,27 +280,25 @@
 
     </div>
 
-    <!-- 📥 Standalone Download Button (बाहर ताकि यह इमेज के अंदर कैप्चर न हो) -->
-    <div class="w-full max-w-sm px-4">
-        <button onclick="downloadCardAsPNG()" class="w-full flex items-center justify-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-md py-3 px-6 rounded-2xl shadow-xl transition transform hover:-translate-y-0.5 active:translate-y-0">
-            <i class="fa-solid fa-file-image text-lg"></i>
+    <!-- 📥 Standalone Download Button -->
+    <div class="w-full max-w-md px-4">
+        <button onclick="downloadCardAsPNG()" class="w-full flex items-center justify-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-sm py-3 px-6 rounded-2xl shadow-xl transition transform hover:-translate-y-0.5 active:translate-y-0">
+            <i class="fa-solid fa-file-image text-md"></i>
             <span>📥 Download Card as Image (PNG)</span>
         </button>
     </div>
 
-    <!-- 📸 Image Conversion Script -->
+    <!-- 📸 Image Conversion Script (सुपर HD डाउनलोड लॉजिक) -->
     <script>
         function downloadCardAsPNG() {
             const cardElement = document.getElementById('card-to-download');
             
-            // html2canvas के साथ हाई-डेफिनिशन स्क्रीनशॉट खींचना
             html2canvas(cardElement, {
-                useCORS: true,       // छवियों को सुरक्षित लोड करने के लिए
-                scale: 3,            // फोटो की क्लैरिटी को 3 गुना बढ़ाने के लिए (Super Sharp HD)
+                useCORS: true,       
+                scale: 3,            // फोटो क्लैरिटी 3 गुना (Ultra Sharp High Quality PNG)
                 allowTaint: true,
-                backgroundColor: null // पारदर्शी पृष्ठभूमि (Transparent background)
+                backgroundColor: null 
             }).then(canvas => {
-                // इमेज डाउनलोड लिंक तैयार करना
                 const link = document.createElement('a');
                 {% if role == 'worker' %}
                     link.download = 'FixMyHome_JobCard_{{ lead.name|slugify }}.png';
