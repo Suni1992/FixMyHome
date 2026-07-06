@@ -266,36 +266,73 @@
             // 🚀 फ़िल्टर को भौतिक रूप से Search Bar और Table से बिल्कुल ऊपर प्रेपेंड (Prepend) करें
             changelistEl.insertBefore(filterEl, changelistEl.firstChild);
             
-            const h3s = filterEl.querySelectorAll('h3');
-            if (h3s.length === 0) return;
+            // डैंगो के पुराने (h3) और नए (details/summary) दोनों फ़िल्टर लेआउट को सपोर्ट करना
+            let filterGroups = [];
+            const detailsList = filterEl.querySelectorAll('details');
             
+            if (detailsList.length > 0) {
+                // नए डैंगो वर्जन्स के लिए
+                detailsList.forEach(details => {
+                    const summary = details.querySelector('summary');
+                    const ul = details.querySelector('ul');
+                    if (summary && ul) {
+                        filterGroups.push({
+                            titleText: summary.textContent.replace('By', '').trim(),
+                            listClone: ul.cloneNode(true)
+                        });
+                    }
+                });
+            } else {
+                // पुराने डैंगो वर्जन्स के लिए
+                const h3s = filterEl.querySelectorAll('h3');
+                h3s.forEach(h3 => {
+                    let next = h3.nextElementSibling;
+                    if (next && next.tagName === 'UL') {
+                        filterGroups.push({
+                            titleText: h3.textContent.replace('By', '').trim(),
+                            listClone: next.cloneNode(true)
+                        });
+                    }
+                });
+            }
+            
+            // यदि कोई फ़िल्टर ग्रुप नहीं मिला तो वापस जाएँ
+            if (filterGroups.length === 0) return;
+            
+            // नया हॉरिजॉन्टल कंटेनर बनाना
             const container = document.createElement('div');
             container.id = 'filter-groups-horizontal';
             
-            h3s.forEach(h3 => {
-                const group = document.createElement('div');
-                group.className = 'filter-group';
+            filterGroups.forEach(group => {
+                const groupDiv = document.createElement('div');
+                groupDiv.className = 'filter-group';
                 
-                // Clone title
-                const title = h3.cloneNode(true);
-                group.appendChild(title);
+                const title = document.createElement('h3');
+                title.textContent = "By " + group.titleText;
+                groupDiv.appendChild(title);
                 
-                // Find the immediately following sibling (which is always a <ul>)
-                let next = h3.nextElementSibling;
-                if (next && next.tagName === 'UL') {
-                    const list = next.cloneNode(true);
-                    group.appendChild(list);
-                }
-                
-                container.appendChild(group);
+                groupDiv.appendChild(group.listClone);
+                container.appendChild(groupDiv);
             });
             
-            // Clear old sibling structure & insert grouped horizontal grid
+            // पुराने तत्वों को हटाकर नया ग्रिड डालना (H2 और अन्य ज़रूरी तत्वों को सुरक्षित रखते हुए)
             const h2 = filterEl.querySelector('h2');
+            const otherChildren = Array.from(filterEl.children).filter(el => {
+                const tag = el.tagName;
+                return tag !== 'DETAILS' && tag !== 'H3' && tag !== 'UL' && tag !== 'H2';
+            });
+            
             filterEl.innerHTML = '';
             if (h2) {
                 filterEl.appendChild(h2);
             }
+            
+            // अन्य एलिमेंट्स (जैसे Show Counts लिंक्स) को वापस जोड़ना
+            otherChildren.forEach(child => {
+                filterEl.appendChild(child);
+            });
+            
+            // अंत में हॉरिजॉन्टल फ़िल्टर ग्रिड को जोड़ना
             filterEl.appendChild(container);
         });
     })();
