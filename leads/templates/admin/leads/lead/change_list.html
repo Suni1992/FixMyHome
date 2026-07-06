@@ -3,31 +3,54 @@
 
 {% block content %}
 <style>
-    /* Modern Horizontal Filter Layout Overrides */
-    #changelist.filtered {
+    /* 1. 🎯 Django के डिफ़ॉल्ट CSS Grid / Float को पूरी तरह रीसेट करें */
+    #changelist {
         display: flex !important;
         flex-direction: column !important;
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
     }
 
-    #changelist-filter {
-        order: -1 !important; /* Move filter to the very top, above results */
+    #changelist-form {
         width: 100% !important;
-        background: #1e293b !important; /* Dark Slate default */
+        max-width: 100% !important;
+        order: 2 !important; /* टेबल को हमेशा फ़िल्टर्स के नीचे रखें */
+        margin-right: 0 !important; /* दाईं ओर का खाली मार्जिन हटाएँ */
+        margin-left: 0 !important;
+        float: none !important;
+    }
+
+    /* 2. 🎯 फ़िल्टर बॉक्स को सबसे ऊपर 100% चौड़ा और क्षैतिज (Horizontal) बनाएँ */
+    #changelist-filter {
+        position: static !important; /* Absolute पोजीशन हटाएँ */
+        float: none !important;
+        order: 1 !important; /* इसे टेबल के ऊपर धकेलें */
+        width: 100% !important;
+        max-width: 100% !important;
+        background: #1e293b !important; /* डिफ़ॉल्ट डार्क स्लेट */
         border: 1px solid #334155 !important;
         border-radius: 12px !important;
         padding: 16px 20px !important;
-        margin: 0 0 20px 0 !important;
+        margin: 0 0 24px 0 !important;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
         box-sizing: border-box !important;
+        height: auto !important;
+        display: block !important; /* हमेशा विज़िबल रखें */
     }
 
-    /* Light Mode fallback override */
+    /* लाइट थीम सपोर्ट */
     :root[data-theme="light"] #changelist-filter,
     body:not(.theme-dark):not([data-theme="dark"]) #changelist-filter {
         background: #f8fafc !important;
         border-color: #e2e8f0 !important;
     }
 
+    /* 3. 🎯 फ़िल्टर का शीर्षक (Header) */
     #changelist-filter h2 {
         font-size: 13px !important;
         font-weight: 800 !important;
@@ -37,23 +60,29 @@
         margin: 0 0 15px 0 !important;
         padding-bottom: 8px !important;
         border-bottom: 1px solid #334155 !important;
+        background: transparent !important;
+        height: auto !important;
+        width: auto !important;
     }
 
     :root[data-theme="light"] #changelist-filter h2,
     body:not(.theme-dark):not([data-theme="dark"]) #changelist-filter h2 {
         border-bottom-color: #e2e8f0 !important;
+        color: #2563eb !important;
     }
 
-    /* Horizontal flex grid for groups */
+    /* 4. 🎯 Django के responsive CSS छुपाने वाले नियम को क्रश करें (Forced Visibility) */
     #filter-groups-horizontal {
         display: flex !important;
         flex-wrap: wrap !important;
         gap: 24px !important;
+        width: 100% !important;
     }
 
     .filter-group {
-        flex: 1 1 200px !important; /* Scale beautifully across screens */
+        flex: 1 1 200px !important; /* स्क्रीन के अनुसार सुंदर खिंचाव */
         min-width: 180px !important;
+        display: block !important; /* डैंगो के display:none को ओवरराइड करें */
     }
 
     .filter-group h3 {
@@ -65,6 +94,7 @@
         margin: 0 0 10px 0 !important;
         border: none !important;
         padding: 0 !important;
+        display: block !important; /* डैंगो के display:none को ओवरराइड करें */
     }
 
     :root[data-theme="light"] .filter-group h3,
@@ -73,7 +103,7 @@
     }
 
     .filter-group ul {
-        display: flex !important;
+        display: flex !important; /* डैंगो के display:none को ओवरराइड करें */
         flex-wrap: wrap !important;
         gap: 6px !important;
         padding: 0 !important;
@@ -85,8 +115,10 @@
         list-style-type: none !important;
         margin: 0 !important;
         padding: 0 !important;
+        display: inline-block !important; /* डैंगो के display:none को ओवरराइड करें */
     }
 
+    /* 5. 🎯 सुंदर फ़िल्टर पिल्स / बटन्स */
     .filter-group li a {
         display: inline-block !important;
         padding: 5px 11px !important;
@@ -117,6 +149,7 @@
         color: #1e293b !important;
     }
 
+    /* चयनित (Selected) फ़िल्टर */
     .filter-group li.selected a {
         background: #2563eb !important;
         color: #ffffff !important;
@@ -165,7 +198,7 @@
         color: #94a3b8;
     }
     
-    /* 🎨 डार्क थीम सपोर्ट */
+    /* डार्क थीम सपोर्ट */
     :root[data-theme="dark"] .kpi-card,
     body.theme-dark .kpi-card,
     [data-theme="dark"] .kpi-card {
