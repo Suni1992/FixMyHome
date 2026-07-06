@@ -26,24 +26,24 @@
     #changelist.filtered #toolbar {
         width: 100% !important;
         box-sizing: border-box !important;
-        margin: 10px 0 !important;
+        margin: 8px 0 !important;
     }
 
     #changelist .actions,
     #changelist.filtered .actions {
         width: 100% !important;
         box-sizing: border-box !important;
-        margin-bottom: 15px !important;
+        margin-bottom: 12px !important;
     }
 
-    /* 2. 🎯 हमारा नया कस्टम फ़िल्टर कंटेनर (Numbers के ठीक नीचे) */
+    /* 2. 🎯 हमारा नया कस्टम फ़िल्टर कंटेनर (KPI डिब्बों के ठीक नीचे) */
     #custom-filter-top-container {
         width: 100% !important;
-        margin-bottom: 20px !important;
+        margin-bottom: 12px !important;
         box-sizing: border-box !important;
     }
 
-    /* 3. 🎯 फ़िल्टर बॉक्स स्टाइल जो हमेशा साफ़ और विज़िबल रहेगा */
+    /* 3. 🎯 फ़िल्टर बॉक्स स्टाइल - अत्यंत स्लिम और मॉडर्न */
     #custom-filter-top-container #changelist-filter,
     #changelist-filter {
         position: relative !important;
@@ -53,12 +53,12 @@
         background: #1e293b !important; /* प्रीमियम डार्क थीम */
         border: 1px solid #334155 !important;
         border-radius: 12px !important;
-        padding: 18px 24px !important;
-        margin: 0 0 15px 0 !important;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+        padding: 10px 16px !important; /* कम पैडिंग */
+        margin: 0 0 10px 0 !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15) !important;
         box-sizing: border-box !important;
         height: auto !important;
-        display: block !important; /* मोबाइल पर भी हमेशा दिखाएं */
+        display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
         right: auto !important;
@@ -80,108 +80,102 @@
 
     /* फ़िल्टर का मुख्य शीर्षक */
     #custom-filter-top-container #changelist-filter h2 {
-        font-size: 13px !important;
+        font-size: 11px !important;
         font-weight: 800 !important;
         text-transform: uppercase !important;
         letter-spacing: 0.08em !important;
         color: #3b82f6 !important;
-        margin: 0 0 16px 0 !important;
+        margin: 0 0 10px 0 !important;
         padding-bottom: 8px !important;
         border-bottom: 1px solid #334155 !important;
         background: transparent !important;
-        display: block !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
     }
 
     :root[data-theme="light"] #custom-filter-top-container #changelist-filter h2,
     body:not(.theme-dark):not([data-theme="dark"]) #custom-filter-top-container #changelist-filter h2 {
-        border-bottom-color: #e2e8f0 !important;
         color: #2563eb !important;
+        border-bottom-color: #e2e8f0 !important;
     }
 
-    /* 4. 🎯 हॉरिजॉन्टल फ़िल्टर ग्रिड लेआउट */
+    /* 4. 🎯 हॉरिजॉन्टल ड्रॉपडाउन ग्रिड लेआउट */
     #filter-groups-horizontal {
         display: flex !important;
         flex-wrap: wrap !important;
-        gap: 24px !important;
+        gap: 12px 16px !important; /* कॉम्पैक्ट गैप */
         width: 100% !important;
     }
 
-    .filter-group {
-        flex: 1 1 200px !important;
-        min-width: 180px !important;
-        display: block !important;
+    /* 5. 🎯 प्रत्येक ड्रॉपडाउन यूनिट का डिज़ाइन */
+    .filter-dropdown-group {
+        flex: 1 1 180px !important; /* हर ड्रॉपडाउन को पर्याप्त चौड़ाई दें */
+        min-width: 160px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 4px !important;
     }
 
-    .filter-group h3 {
-        font-size: 11px !important;
+    .filter-dropdown-group label {
+        font-size: 9px !important;
         font-weight: 700 !important;
         text-transform: uppercase !important;
         color: #94a3b8 !important;
         letter-spacing: 0.06em !important;
-        margin: 0 0 10px 0 !important;
-        border: none !important;
-        padding: 0 !important;
-        display: block !important;
     }
 
-    :root[data-theme="light"] .filter-group h3,
-    body:not(.theme-dark):not([data-theme="dark"]) .filter-group h3 {
+    :root[data-theme="light"] .filter-dropdown-group label,
+    body:not(.theme-dark):not([data-theme="dark"]) .filter-dropdown-group label {
         color: #64748b !important;
     }
 
-    .filter-group ul {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 6px !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        list-style: none !important;
-    }
-
-    .filter-group li {
-        margin: 0 !important;
-        padding: 0 !important;
-        display: inline-block !important;
-    }
-
-    /* 5. 🎯 सुंदर फ़िल्टर पिल्स (Buttons) */
-    .filter-group li a {
-        display: inline-block !important;
-        padding: 5px 12px !important;
-        background: #334155 !important;
-        color: #cbd5e1 !important;
-        border-radius: 8px !important;
+    /* 6. 🎯 प्रीमियम कस्टमाइज्ड ड्रॉपडाउन सेलेक्ट स्टाइल */
+    .filter-select {
+        width: 100% !important;
+        padding: 5px 24px 5px 8px !important;
         font-size: 11px !important;
         font-weight: 600 !important;
-        text-decoration: none !important;
-        transition: all 0.2s ease !important;
-        border: 1px solid transparent !important;
+        color: #cbd5e1 !important;
+        background-color: #1e293b !important;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
+        background-position: right 4px center !important;
+        background-repeat: no-repeat !important;
+        background-size: 16px 16px !important;
+        border: 1px solid #334155 !important;
+        border-radius: 6px !important;
+        cursor: pointer !important;
+        outline: none !important;
+        transition: all 0.15s ease !important;
+        appearance: none !important; /* डिफ़ॉल्ट तीर छिपाएँ */
     }
 
-    :root[data-theme="light"] .filter-group li a,
-    body:not(.theme-dark):not([data-theme="dark"]) .filter-group li a {
-        background: #f1f5f9 !important;
-        color: #475569 !important;
-        border-color: #e2e8f0 !important;
-    }
-
-    .filter-group li a:hover {
-        background: #475569 !important;
-        color: #ffffff !important;
-    }
-
-    :root[data-theme="light"] .filter-group li a:hover,
-    body:not(.theme-dark):not([data-theme="dark"]) .filter-group li a:hover {
-        background: #cbd5e1 !important;
-        color: #1e293b !important;
-    }
-
-    /* चयनित (Active) फ़िल्टर */
-    .filter-group li.selected a {
-        background: #2563eb !important;
-        color: #ffffff !important;
+    .filter-select:hover, .filter-select:focus {
         border-color: #3b82f6 !important;
-        box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3) !important;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15) !important;
+    }
+
+    /* एक्टिव / चयनित फ़िल्टर वाले ड्रॉपडाउन को हाइलाइट करें */
+    .filter-dropdown-group.has-active .filter-select {
+        border-color: #3b82f6 !important;
+        background-color: rgba(59, 130, 246, 0.1) !important;
+        color: #3b82f6 !important;
+    }
+
+    :root[data-theme="light"] .filter-select,
+    body:not(.theme-dark):not([data-theme="dark"]) .filter-select {
+        color: #475569 !important;
+        background-color: #f8fafc !important;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23475569' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
+        border-color: #cbd5e1 !important;
+    }
+
+    :root[data-theme="light"] .filter-dropdown-group.has-active .filter-select,
+    body:not(.theme-dark):not([data-theme="dark"]) .filter-dropdown-group.has-active .filter-select {
+        border-color: #2563eb !important;
+        background-color: rgba(37, 99, 235, 0.05) !important;
+        color: #2563eb !important;
     }
 </style>
 
@@ -288,7 +282,7 @@
 
 <script>
     (function() {
-        function initFilters() {
+        function initDropdownFilters() {
             const filterEl = document.getElementById('changelist-filter');
             const customContainer = document.getElementById('custom-filter-top-container');
             if (!filterEl || !customContainer) return;
@@ -301,47 +295,80 @@
             const detailsList = filterEl.querySelectorAll('details');
             
             if (detailsList.length > 0) {
-                // नए डैंगो वर्जन्स के लिए
                 detailsList.forEach(details => {
                     const summary = details.querySelector('summary');
                     const ul = details.querySelector('ul');
                     if (summary && ul) {
                         filterGroups.push({
                             titleText: summary.textContent.replace('By', '').trim(),
-                            listClone: ul.cloneNode(true)
+                            listItems: Array.from(ul.querySelectorAll('li'))
                         });
                     }
                 });
             } else {
-                // पुराने डैंगो वर्जन्स के लिए
                 const h3s = filterEl.querySelectorAll('h3');
                 h3s.forEach(h3 => {
                     let next = h3.nextElementSibling;
                     if (next && next.tagName === 'UL') {
                         filterGroups.push({
                             titleText: h3.textContent.replace('By', '').trim(),
-                            listClone: next.cloneNode(true)
+                            listItems: Array.from(next.querySelectorAll('li'))
                         });
                     }
                 });
             }
             
-            // यदि कोई फ़िल्टर ग्रुप नहीं मिला तो वापस जाएँ
             if (filterGroups.length === 0) return;
             
-            // नया हॉरिजॉन्टल कंटेनर बनाना
+            // नया हॉरिजॉन्टल ड्रॉपडाउन ग्रिड कंटेनर बनाना
             const container = document.createElement('div');
             container.id = 'filter-groups-horizontal';
             
             filterGroups.forEach(group => {
                 const groupDiv = document.createElement('div');
-                groupDiv.className = 'filter-group';
+                groupDiv.className = 'filter-dropdown-group';
                 
-                const title = document.createElement('h3');
-                title.textContent = "By " + group.titleText;
-                groupDiv.appendChild(title);
+                const label = document.createElement('label');
+                label.textContent = "By " + group.titleText;
+                groupDiv.appendChild(label);
                 
-                groupDiv.appendChild(group.listClone);
+                const select = document.createElement('select');
+                select.className = 'filter-select';
+                
+                let isAnyOptionActive = false;
+                
+                group.listItems.forEach(li => {
+                    const a = li.querySelector('a');
+                    if (a) {
+                        const option = document.createElement('option');
+                        option.value = a.getAttribute('href');
+                        option.textContent = a.textContent.trim();
+                        
+                        // यदि यह एक्टिव सिलेक्टेड फ़िल्टर है
+                        if (li.classList.contains('selected') || a.parentElement.classList.contains('selected')) {
+                            option.selected = true;
+                            
+                            // "All" विकल्प को छोड़कर यदि कोई विशिष्ट फ़िल्टर एक्टिव है, तो हाइलाइट करें
+                            if (a.textContent.trim().toLowerCase() !== 'all' && a.textContent.trim() !== 'सब') {
+                                isAnyOptionActive = true;
+                            }
+                        }
+                        select.appendChild(option);
+                    }
+                });
+                
+                if (isAnyOptionActive) {
+                    groupDiv.classList.add('has-active');
+                }
+                
+                // ड्रॉपडाउन बदलने पर यूआरएल फ़िल्टर ट्रिगर करें
+                select.addEventListener('change', function() {
+                    if (this.value) {
+                        window.location.href = this.value;
+                    }
+                });
+                
+                groupDiv.appendChild(select);
                 container.appendChild(groupDiv);
             });
             
@@ -354,23 +381,25 @@
             
             filterEl.innerHTML = '';
             if (h2) {
+                // शीर्षक का नाम बदलकर अधिक प्रोफेशनल रखें
+                h2.innerHTML = '<span style="display: flex; align-items: center; gap: 6px;"><i class="fa-solid fa-filter" style="font-size: 11px;"></i> 🔍 Quick Filters</span>';
                 filterEl.appendChild(h2);
             }
             
-            // अन्य एलिमेंट्स (जैसे Show Counts लिंक्स) को वापस जोड़ना
+            // अन्य एलिमेंट्स को वापस जोड़ना
             otherChildren.forEach(child => {
                 filterEl.appendChild(child);
             });
             
-            // अंत में हॉरिजॉन्टल फ़िल्टर ग्रिड को जोड़ना
+            // अंत में नया ड्रॉपडाउन ग्रिड जोड़ना
             filterEl.appendChild(container);
         }
 
-        // 🚀 लोडिंग स्टेट चेक ताकि स्क्रिप्ट मिस न हो
+        // 🚀 लोडिंग स्टेट चेक
         if (document.readyState === "loading") {
-            document.addEventListener("DOMContentLoaded", initFilters);
+            document.addEventListener("DOMContentLoaded", initDropdownFilters);
         } else {
-            initFilters();
+            initDropdownFilters();
         }
     })();
 </script>
