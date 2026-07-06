@@ -2,6 +2,129 @@
 {% load i18n admin_urls static admin_list %}
 
 {% block content %}
+<style>
+    /* Modern Horizontal Filter Layout Overrides */
+    #changelist.filtered {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    #changelist-filter {
+        order: -1 !important; /* Move filter to the very top, above results */
+        width: 100% !important;
+        background: #1e293b !important; /* Dark Slate default */
+        border: 1px solid #334155 !important;
+        border-radius: 12px !important;
+        padding: 16px 20px !important;
+        margin: 0 0 20px 0 !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Light Mode fallback override */
+    :root[data-theme="light"] #changelist-filter,
+    body:not(.theme-dark):not([data-theme="dark"]) #changelist-filter {
+        background: #f8fafc !important;
+        border-color: #e2e8f0 !important;
+    }
+
+    #changelist-filter h2 {
+        font-size: 13px !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.08em !important;
+        color: #3b82f6 !important;
+        margin: 0 0 15px 0 !important;
+        padding-bottom: 8px !important;
+        border-bottom: 1px solid #334155 !important;
+    }
+
+    :root[data-theme="light"] #changelist-filter h2,
+    body:not(.theme-dark):not([data-theme="dark"]) #changelist-filter h2 {
+        border-bottom-color: #e2e8f0 !important;
+    }
+
+    /* Horizontal flex grid for groups */
+    #filter-groups-horizontal {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 24px !important;
+    }
+
+    .filter-group {
+        flex: 1 1 200px !important; /* Scale beautifully across screens */
+        min-width: 180px !important;
+    }
+
+    .filter-group h3 {
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        color: #94a3b8 !important;
+        letter-spacing: 0.06em !important;
+        margin: 0 0 10px 0 !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    :root[data-theme="light"] .filter-group h3,
+    body:not(.theme-dark):not([data-theme="dark"]) .filter-group h3 {
+        color: #64748b !important;
+    }
+
+    .filter-group ul {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+    }
+
+    .filter-group li {
+        list-style-type: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .filter-group li a {
+        display: inline-block !important;
+        padding: 5px 11px !important;
+        background: #334155 !important;
+        color: #cbd5e1 !important;
+        border-radius: 8px !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        transition: all 0.2s ease !important;
+        border: 1px solid transparent !important;
+    }
+
+    :root[data-theme="light"] .filter-group li a,
+    body:not(.theme-dark):not([data-theme="dark"]) .filter-group li a {
+        background: #e2e8f0 !important;
+        color: #475569 !important;
+    }
+
+    .filter-group li a:hover {
+        background: #475569 !important;
+        color: #ffffff !important;
+    }
+
+    :root[data-theme="light"] .filter-group li a:hover,
+    body:not(.theme-dark):not([data-theme="dark"]) .filter-group li a:hover {
+        background: #cbd5e1 !important;
+        color: #1e293b !important;
+    }
+
+    .filter-group li.selected a {
+        background: #2563eb !important;
+        color: #ffffff !important;
+        border-color: #3b82f6 !important;
+        box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2) !important;
+    }
+</style>
+
 {% if dashboard_stats %}
 <style>
     .kpi-container {
@@ -99,4 +222,45 @@
 {% endif %}
 
 {{ block.super }}
+
+<script>
+    (function() {
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterEl = document.getElementById('changelist-filter');
+            if (!filterEl) return;
+            
+            const h3s = filterEl.querySelectorAll('h3');
+            if (h3s.length === 0) return;
+            
+            const container = document.createElement('div');
+            container.id = 'filter-groups-horizontal';
+            
+            h3s.forEach(h3 => {
+                const group = document.createElement('div');
+                group.className = 'filter-group';
+                
+                // Clone title
+                const title = h3.cloneNode(true);
+                group.appendChild(title);
+                
+                // Find the immediately following sibling (which is always a <ul>)
+                let next = h3.nextElementSibling;
+                if (next && next.tagName === 'UL') {
+                    const list = next.cloneNode(true);
+                    group.appendChild(list);
+                }
+                
+                container.appendChild(group);
+            });
+            
+            // Clear old sibling structure & insert grouped horizontal grid
+            const h2 = filterEl.querySelector('h2');
+            filterEl.innerHTML = '';
+            if (h2) {
+                filterEl.appendChild(h2);
+            }
+            filterEl.appendChild(container);
+        });
+    })();
+</script>
 {% endblock %}
