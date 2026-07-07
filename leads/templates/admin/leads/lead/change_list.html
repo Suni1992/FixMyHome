@@ -177,6 +177,21 @@
         background-color: rgba(37, 99, 235, 0.05) !important;
         color: #2563eb !important;
     }
+
+    /* 7. 🎯 नो-रैपिंग (white-space: nowrap) - टेक्स्ट को एक लाइन में रखने के लिए */
+    #changelist .results {
+        overflow-x: auto !important; /* स्क्रॉल कंटेनर */
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 8px !important;
+    }
+
+    #result_list th, 
+    #result_list td {
+        white-space: nowrap !important; /* टेक्स्ट रैपिंग हमेशा के लिए बंद */
+        vertical-align: middle !important; /* वर्टिकल अलाइनमेंट */
+        padding: 8px 10px !important; /* कॉम्पैक्ट पैडिंग */
+    }
 </style>
 
 {% if dashboard_stats %}
